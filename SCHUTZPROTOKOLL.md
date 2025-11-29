@@ -16,9 +16,15 @@ Dieses Dokument dient als Leitfaden, um sicherzustellen, dass bei zukünftigen �
 | Farbdatei | `styles/colors/color-caqui.css` | Nicht bearbeiten! |
 
 ### Schriftarten
+- **Roboto Condensed** - Für Überschriften (Headlines) - schmal/narrow, fett
 - **Roboto** - Für Fließtext
-- **Montserrat** - Für Überschriften
 - **Cousine** - Für Untertitel und Zitate
+
+### Header
+| Eigenschaft | Wert |
+|-------------|------|
+| Höhe | 100px |
+| Logo max-Höhe | 60px |
 
 ### Grundlegende Dateistruktur
 ```
@@ -52,11 +58,11 @@ images/
 | Kartenansicht | 400 x 400 px | JPG/PNG, quadratisch |
 | Detail-Ansicht | 600 x 800 px | JPG/PNG, Hochformat |
 
-### Album-Cover
+### Album-Cover (IMMER QUADRATISCH!)
 | Verwendung | Maße | Format |
 |------------|------|--------|
-| Grid-Ansicht | 556 x 556 px | JPG/PNG, quadratisch |
-| Detail-Ansicht | 1000 x 1000 px | JPG/PNG, quadratisch |
+| Grid-Ansicht | 380 x 380 px | JPG/PNG, **quadratisch** |
+| Detail-Ansicht | 640 x 640 px | JPG/PNG, **quadratisch** |
 
 ### Blog/News-Bilder
 | Verwendung | Maße | Format |
