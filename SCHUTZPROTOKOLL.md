@@ -16,7 +16,7 @@ Dieses Dokument dient als Leitfaden, um sicherzustellen, dass bei zukünftigen �
 | Farbdatei | `styles/colors/color-caqui.css` | Nicht bearbeiten! |
 
 ### Schriftarten
-- **Roboto Condensed** - Für Überschriften (Headlines) - schmal/narrow, fett
+- **Oswald** - Für Überschriften (Headlines) - schmal/narrow, fett
 - **Roboto** - Für Fließtext
 - **Cousine** - Für Untertitel und Zitate
 
