@@ -101,36 +101,28 @@
 
   <!-- INTRO mit Video -->
   <!-- 
-    VIDEO FORMATE (Self-Hosted HTML5 Video):
+    VIDEO FORMAT (Self-Hosted HTML5 Video):
     ========================================
-    DESKTOP: 1920 x 1080 px (16:9 Querformat)
-    MOBIL:   720 x 1280 px (9:16 Hochformat) - optional für bessere mobile Darstellung
+    EIN VIDEO FÜR ALLE GERÄTE (16:9 Querformat):
+    
+    DESKTOP: 1920 x 1080 px (Full HD)
+    MOBIL:   1280 x 720 px (HD) - gleiche Datei, wird automatisch skaliert
     
     FORMAT: MP4 (H.264 Codec) oder WebM
     DATEIGRÖSSE: Max. 10-15 MB empfohlen
     
     ANLEITUNG:
-    1. Lade dein Video als MP4 in den Ordner: images/rokko/video/
-    2. Benenne es: intro-video.mp4 (Desktop) und intro-video-mobile.mp4 (Mobil, optional)
-    3. Das Video läuft automatisch stumm, mit Ton-Button zum Einschalten
+    1. Erstelle dein Video in 1920x1080 px (16:9)
+    2. Lade es als intro-video.mp4 in: images/rokko/video/
+    3. Das Video skaliert automatisch auf allen Geräten
   -->
   <section class="intro full-width full-height jIntro rokko-video-intro" id="anchor00">
     <!-- Self-Hosted HTML5 Video Player - KEIN YOUTUBE, KEINE WERBUNG -->
     <div class="rokko-video-container">
-      <!-- Desktop Video (16:9) -->
-      <video class="rokko-intro-video rokko-video-desktop" autoplay muted loop playsinline>
-        <!-- Ersetze mit deinem Video: images/rokko/video/intro-video.mp4 -->
+      <!-- Ein Video für alle Geräte (16:9) - skaliert automatisch -->
+      <video class="rokko-intro-video" autoplay muted loop playsinline id="intro-video">
         <source src="images/rokko/video/intro-video.mp4" type="video/mp4">
-        <!-- Fallback für WebM -->
         <source src="images/rokko/video/intro-video.webm" type="video/webm">
-      </video>
-      
-      <!-- Mobile Video (9:16 Hochformat) - Optional, zeigt automatisch auf Mobil -->
-      <video class="rokko-intro-video rokko-video-mobile" autoplay muted loop playsinline>
-        <!-- Ersetze mit deinem Hochformat-Video: images/rokko/video/intro-video-mobile.mp4 -->
-        <source src="images/rokko/video/intro-video-mobile.mp4" type="video/mp4">
-        <!-- Fallback: Desktop-Video wenn kein Mobil-Video vorhanden -->
-        <source src="images/rokko/video/intro-video.mp4" type="video/mp4">
       </video>
       
       <!-- Sound Toggle Button -->
@@ -144,17 +136,15 @@
   <script>
     // Sound Toggle für Video
     function toggleVideoSound() {
-      var videos = document.querySelectorAll('.rokko-intro-video');
+      var video = document.getElementById('intro-video');
       var icon = document.getElementById('sound-icon');
-      videos.forEach(function(video) {
-        if (video.muted) {
-          video.muted = false;
-          icon.className = 'fa fa-volume-up';
-        } else {
-          video.muted = true;
-          icon.className = 'fa fa-volume-off';
-        }
-      });
+      if (video.muted) {
+        video.muted = false;
+        icon.className = 'fa fa-volume-up';
+      } else {
+        video.muted = true;
+        icon.className = 'fa fa-volume-off';
+      }
     }
   </script>
 
