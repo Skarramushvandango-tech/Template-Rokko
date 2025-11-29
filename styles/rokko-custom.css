@@ -155,40 +155,72 @@ section.discography .item-disc .info-album .cover .rollover,
 }
 
 /* ============================================
-   GLOBALE FARBÄNDERUNGEN - Weiß zu Sand/Caqui
-   Alle weißen Hintergründe werden Sand-farben
+   GLOBALE FARBÄNDERUNGEN - NUR Weiß zu Sand/Caqui
+   Dunkle Sektionen bleiben DUNKEL!
    ============================================ */
 body {
     background-color: #f5f0e1 !important; /* Helles Sand/Beige */
 }
 
-/* Alle Sektionen mit hellem Hintergrund */
-.section,
-section,
-.container,
-.blog,
-.list-posts,
+/* NUR helle Sektionen (vorher weiß) werden Sand-farben */
+.featured-artists,
 .discography,
-.latest-album {
+.latest-album,
+.blog.list-posts,
+.list-posts:not(.inverse-color) {
     background-color: #f5f0e1 !important; /* Helles Sand/Beige */
 }
 
-/* Dunkle Schrift auf hellem Hintergrund für Kontrast */
-body,
-.section p,
-.section h1, .section h2, .section h3, .section h4,
-.title,
-.title-wrapper h2,
-p,
-.cousine,
-.text-center,
-.post-item p,
-.post-item h3,
-.post-item h4,
+/* DUNKLE Sektionen bleiben DUNKEL */
+.inverse-color,
+.stay-in-touch,
+.contact,
+.rokko-merch,
+header,
+#jHeader {
+    background-color: #333 !important; /* Dunkel bleibt dunkel */
+}
+
+/* Footer bleibt Caqui/Khaki */
+footer {
+    background: #bdb76b !important;
+}
+
+/* Dunkle Schrift NUR auf HELLEN Hintergründen */
+.featured-artists p,
+.featured-artists h1, .featured-artists h2, .featured-artists h3, .featured-artists h4,
+.discography p,
+.discography h1, .discography h2, .discography h3, .discography h4,
+.discography .title,
+.discography .title-wrapper h2,
+.latest-album p,
+.latest-album h1, .latest-album h2, .latest-album h3, .latest-album h4,
+.blog.list-posts p,
+.blog.list-posts h1, .blog.list-posts h2, .blog.list-posts h3, .blog.list-posts h4,
+.list-posts:not(.inverse-color) p,
+.list-posts:not(.inverse-color) h1, .list-posts:not(.inverse-color) h2,
 .info-album .album,
 .info-album .artist,
-.featured-artist .name {
+.featured-artist .name,
+.post-item p,
+.post-item h3,
+.post-item h4 {
     color: #333 !important;
+}
+
+/* Helle Schrift auf DUNKLEN Hintergründen */
+.inverse-color p,
+.inverse-color h1, .inverse-color h2, .inverse-color h3, .inverse-color h4,
+.stay-in-touch p,
+.stay-in-touch h1, .stay-in-touch h2,
+.contact p,
+.contact h1, .contact h2, .contact h3, .contact h4,
+.contact .title,
+.rokko-merch p,
+.rokko-merch h1, .rokko-merch h2,
+header a,
+#jHeader a {
+    color: #fff !important;
 }
 
 /* Caqui-Akzentfarbe für bestimmte Texte */
