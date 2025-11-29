@@ -10,7 +10,7 @@
  * BASIS-KONFIGURATION (NICHT ÄNDERN):
  * - Primärfarbe: #bdb76b (Caqui/Khaki)
  * - Farbschema: palettecaqui
- * - Schriftarten: Oswald (Headlines - narrow/fett), Roboto (Text), Cousine (Mono)
+ * - Schriftarten: Anton (Headlines - FETT/BLACK), Roboto (Text), Cousine (Mono)
  * - Header-Höhe: 100px
  * 
  * Letzte Aktualisierung: 2024
@@ -18,7 +18,8 @@
  */
 
 /* ============================================
-   SCHRIFTARTEN - Oswald für Headlines (narrow/schmal, FETT)
+   SCHRIFTARTEN - Anton für Headlines (SEHR FETT/BLACK)
+   Anton ist von Natur aus eine fette, schwarze Schrift!
    ============================================ */
 h1, h2, h3, h4, h5, h6,
 .title,
@@ -32,22 +33,22 @@ h1, h2, h3, h4, h5, h6,
 .post-item .title.post,
 p.album,
 .info-album-player .album-title {
-    font-family: 'Oswald', 'Arial Narrow', Helvetica, sans-serif !important;
-    font-weight: 700 !important;
+    font-family: 'Anton', Impact, 'Arial Black', sans-serif !important;
+    font-weight: 400 !important; /* Anton ist schon fett, braucht kein 700 */
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 /* Alle Titel noch stärker überschreiben */
 body h1, body h2, body h3, body h4, body h5, body h6 {
-    font-family: 'Oswald', 'Arial Narrow', Helvetica, sans-serif !important;
-    font-weight: 700 !important;
+    font-family: 'Anton', Impact, 'Arial Black', sans-serif !important;
+    font-weight: 400 !important;
 }
 
 body .title,
 body .title-wrapper h2.title {
-    font-family: 'Oswald', 'Arial Narrow', Helvetica, sans-serif !important;
-    font-weight: 700 !important;
+    font-family: 'Anton', Impact, 'Arial Black', sans-serif !important;
+    font-weight: 400 !important;
     font-size: 42px;
 }
 
@@ -244,6 +245,16 @@ body .title-wrapper h2.title {
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 15px;
+}
+
+/* Merch Bild - RECHTECKIG 700x400px */
+.rokko-merch-image {
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 7 / 4; /* Rechteckig: 700x400 */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 /* ============================================

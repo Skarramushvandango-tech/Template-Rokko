@@ -16,7 +16,7 @@ Dieses Dokument dient als Leitfaden, um sicherzustellen, dass bei zukünftigen �
 | Farbdatei | `styles/colors/color-caqui.css` | Nicht bearbeiten! |
 
 ### Schriftarten
-- **Oswald** - Für Überschriften (Headlines) - schmal/narrow, fett
+- **Anton** - Für Überschriften (Headlines) - schmal/narrow, fett
 - **Roboto** - Für Fließtext
 - **Cousine** - Für Untertitel und Zitate
 
@@ -63,6 +63,11 @@ images/
 |------------|------|--------|
 | Grid-Ansicht | 380 x 380 px | JPG/PNG, **quadratisch** |
 | Detail-Ansicht | 640 x 640 px | JPG/PNG, **quadratisch** |
+
+### Merch-Bild (RECHTECKIG!)
+| Verwendung | Maße | Format |
+|------------|------|--------|
+| Maskottchen-Bild | 700 x 400 px | JPG/PNG, **rechteckig** |
 
 ### Blog/News-Bilder
 | Verwendung | Maße | Format |
