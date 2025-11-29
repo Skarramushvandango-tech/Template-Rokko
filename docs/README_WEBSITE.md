@@ -95,6 +95,8 @@ npx serve .
 
 ## 🌐 GitHub Pages Veröffentlichung
 
+> **Hinweis:** Eine `CNAME`-Datei existiert bereits im Repository mit der Domain `rokko_webtest.de`. Nach erfolgreicher Konfiguration ist die Seite unter dieser Custom Domain erreichbar.
+
 ### Methode 1: Aus main Branch (Root)
 
 1. Gehe zu deinem Repository auf GitHub
@@ -105,11 +107,12 @@ npx serve .
    - **Folder**: `/ (root)`
 5. Klicke auf **Save**
 6. Warte 1-2 Minuten, bis die Seite erstellt wird
-7. Deine Webseite ist dann unter `https://<username>.github.io/Template-Rokko/rokko-index.html` erreichbar
+7. **Mit CNAME-Datei**: Die Webseite ist unter `https://rokko_webtest.de/rokko-index.html` erreichbar
+8. **Ohne CNAME-Datei**: Die Webseite wäre unter `https://<username>.github.io/Template-Rokko/rokko-index.html` erreichbar
 
 ### Methode 2: Mit Custom Domain (CNAME)
 
-Eine `CNAME`-Datei existiert bereits im Repository. Um eine eigene Domain zu verwenden:
+Die `CNAME`-Datei ist bereits im Repository mit `rokko_webtest.de` konfiguriert. Um diese oder eine andere Domain zu verwenden:
 
 1. Aktiviere GitHub Pages wie oben beschrieben
 2. Unter **Custom domain**, gib deine Domain ein (z.B. `rokko-records.de`)
@@ -124,8 +127,9 @@ Eine `CNAME`-Datei existiert bereits im Repository. Um eine eigene Domain zu ver
 
 ### Nach der Veröffentlichung
 
-- **Hauptseite**: `https://<domain>/rokko-index.html`
-- **Künstler-Seiten**: `https://<domain>/artist-vandango.html` etc.
+Mit der konfigurierten Custom Domain `rokko_webtest.de`:
+- **Hauptseite**: `https://rokko_webtest.de/rokko-index.html`
+- **Künstler-Seiten**: `https://rokko_webtest.de/artist-vandango.html` etc.
 
 ---
 
