@@ -94,50 +94,64 @@ body .title-wrapper h2.title {
 }
 
 /* ============================================
-   ALBUM COVER - QUADRATISCH (380x380 px)
+   ALBUM COVER - QUADRATISCH (556x556 px)
    Wichtig: Cover sind immer quadratisch!
    ============================================ */
-.discography .info-album .cover {
-    width: 100%;
-    padding-bottom: 100%; /* 1:1 Aspect Ratio = Quadratisch */
-    position: relative;
-    overflow: hidden;
+
+/* Discography Album Cover - Quadratisch mit aspect-ratio */
+/* Sehr spezifische Selektoren um main.css zu überschreiben */
+section.discography .item-disc .info-album .cover,
+.carousel-discography .gallery-cell .item-disc .info-album .cover,
+.carousel-discography .item-disc .info-album .cover,
+.discography .info-album .cover,
+.carousel-discography .info-album .cover {
+    width: 100% !important;
+    max-width: 556px !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    position: relative !important;
+    overflow: hidden !important;
+    margin: 0 auto !important;
+    padding-bottom: 0 !important;
 }
 
-.discography .info-album .cover img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+section.discography .item-disc .info-album .cover img,
+.carousel-discography .gallery-cell .item-disc .info-album .cover img,
+.carousel-discography .item-disc .info-album .cover img,
+.discography .info-album .cover img,
+.carousel-discography .info-album .cover img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    aspect-ratio: 1 / 1 !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
 }
 
-.discography .info-album .cover .rollover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Carousel Discography Items - Quadratische Cover */
-.carousel-discography .gallery-cell .info-album .cover {
-    width: 100%;
-    max-width: 380px;
-    margin: 0 auto;
-}
-
-.carousel-discography .gallery-cell .info-album .cover img {
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
+section.discography .item-disc .info-album .cover .rollover,
+.carousel-discography .gallery-cell .item-disc .info-album .cover .rollover,
+.discography .info-album .cover .rollover,
+.carousel-discography .info-album .cover .rollover {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 /* Latest Album Cover - auch quadratisch */
+.latest-album .info-album .cover {
+    aspect-ratio: 1 / 1 !important;
+    max-width: 556px !important;
+    height: auto !important;
+}
+
 .latest-album .info-album .cover img {
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    max-width: 380px;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    aspect-ratio: 1 / 1 !important;
 }
 
 /* ============================================
