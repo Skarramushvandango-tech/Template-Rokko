@@ -1,0 +1,585 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ROKKO! Records | Plattenlabel</title>
+  <meta name="description" content="ROKKO! Records - Dein Plattenlabel für elektronische Musik. Entdecke unsere Künstler: SkaRamush Vandango, Henri Bellieu, Fléur et Buenié, Skank Schablonski.">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+
+  <!-- ROKKO! Records Favicon - Platzhalter -->
+  <!-- <link rel="icon" href="images/rokko/favicon.ico" type="image/x-icon"> -->
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic|Cousine:400,700|Montserrat:300,400,800|Anton' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="styles/vendor/bootstrap.css">
+  <link rel="stylesheet" href="styles/vendor/font-awesome.min.css">
+  <link rel="stylesheet" href="styles/vendor/superslides.css">
+  <link rel="stylesheet" href="styles/vendor/owl.carousel.css">
+  <link rel="stylesheet" href="styles/vendor/owl.transitions.css">
+  <link rel="stylesheet" href="styles/vendor/flickity.min.css">
+  <link rel="stylesheet" href="styles/vendor/swipebox.min.css">
+  <link rel="stylesheet" href="styles/vendor/TimeCircles.css">
+
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <!-- ROKKO! Records Farbschema: Caqui/Khaki #bdb76b -->
+  <link rel="stylesheet" href="styles/colors/color-caqui.css">
+  
+  <!-- ROKKO! Records Custom Styles -->
+  <link rel="stylesheet" href="styles/rokko-custom.css">
+
+  <script src="scripts/vendor/modernizr.js"></script>
+</head>
+<body data-spy="scroll" data-target="#navbar-muziq" data-offset="80" class="palettecaqui">
+
+  <!-- LOADER -->
+  <div id="mask">
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="jHeader" class="overflow-video">
+    <nav class="navbar navbar-default" role="navigation">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Navigation öffnen</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- ROKKO! Records Logo - Platzhalter für dein Logo -->
+        <a class="navbar-brand" href="#anchor00">
+          <img src="images/logo-white.png" alt="ROKKO! Records">
+          <!-- Ersetze mit: <img src="images/rokko/rokko-logo.png" alt="ROKKO! Records"> -->
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse navbar-ex1-collapse" id="navbar-muziq">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#anchor00">Home</a></li>
+          <li><a href="#anchor01">ROKKO! Crew</a></li>
+          <li><a href="#anchor03">ROKKO! Beats</a></li>
+          <li><a href="#anchor04">ROKKO! Merch</a></li>
+          <li><a href="#anchor07">ROKKO! News</a></li>
+          <li><a href="#anchor08">ROKKO! Kontakt</a></li>
+        </ul>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- INTRO mit Video -->
+  <!-- 
+    VIDEO MASZE:
+    - Desktop: 1920x1080 px (16:9 Format) - empfohlen für beste Qualität
+    - Mobil: 720x1280 px (9:16 Format) - für vertikale Ansicht
+    - Unterstützte Formate: MP4 (H.264), WebM
+    - Maximale Dateigröße empfohlen: 10-15 MB für schnelles Laden
+  -->
+  <section class="intro full-width full-height jIntro" id="anchor00">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          
+          <!-- Video Player - Ersetze die YouTube Video-ID mit deinem eigenen Video -->
+          <!-- Aktuell: Platzhalter-Video. Ersetze 'MeyI1X-Pl9s' mit deiner Video-ID -->
+          <div class="playerVideo" data-property="{videoURL:'MeyI1X-Pl9s',showControls:false,containment:'self',autoPlay:true, mute:true, startAt:0,opacity:1,ratio:'16/9', addRaster:true}">
+            <a href="#" class="play-video">Play/Pause</a>
+          </div>
+
+          <!-- Welcome Text Overlay -->
+          <div class="rokko-welcome-overlay">
+            <h1 class="rokko-welcome-title">ROKKO! Records</h1>
+            <p class="rokko-welcome-subtitle">Willkommen bei deinem Plattenlabel für elektronische Musik</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYER -->
+  <div class="player horizontal">
+    <div class="container">
+      <div class="info-album-player">
+        <!-- Platzhalter für Album-Cover -->
+        <div class="album-cover" style="background: url('images/demo/cover-player.jpg') no-repeat center" id="bg-image3"></div>
+        <p class="album-title">Neurocentric</p>
+        <p class="artist-name">Album by SkaRamush Vandango</p>
+      </div>
+      <div class="player-content">
+        <audio preload></audio>
+        <ol class="playlist">
+          <!-- Ersetze mit deinen MP3-Dateien -->
+          <li><a href="#" data-src="mp3/01.mp3">Track 1 - Neurocentric</a></li>
+          <li><a href="#" data-src="mp3/02.mp3">Track 2 - Neurocentric</a></li>
+          <li><a href="#" data-src="mp3/03.mp3">Track 3 - Neurocentric</a></li>
+        </ol>
+        <div class="nextprev">
+          <span class="prev">prev</span>
+          <span class="next">next</span>
+        </div>
+        <span class="btnloop">loop</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROKKO! CREW (Artists) -->
+  <!-- 
+    ARTIST FOTO MASZE:
+    - Quadratisch: 400x400 px (für Kartenansicht)
+    - Rechteckig: 600x800 px (für Detail-Ansicht)
+    - Format: JPG oder PNG
+  -->
+  <section class="section featured-artists" id="anchor01">
+    <div class="container">
+      <div class="voffset70"></div>
+      <div class="title-wrapper">
+        <h2 class="title">ROKKO! Crew</h2>
+      </div>
+      <p class="text-center cousine">Unsere Künstler - Dein Sound</p>
+      <div class="voffset80"></div>
+
+      <div class="row">
+        <!-- Artist 1: SkaRamush Vandango -->
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="featured-artist">
+            <div class="photo">
+              <!-- Ersetze mit: images/rokko/artists/skaramush-vandango.jpg (400x400px) -->
+              <img src="images/demo/artists/featured-artist1.jpg" alt="SkaRamush Vandango">
+              <div class="rollover">
+                <div class="social">
+                  <a href="#"><i class="fa fa-spotify"></i></a>
+                  <a href="#"><i class="fa fa-apple"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+            <h4 class="name">SkaRamush Vandango</h4>
+            <p class="genre">Album: Neurocentric</p>
+            <a href="artist-vandango.html" class="btn square inverse">Biografie</a>
+          </div>
+        </div>
+
+        <!-- Artist 2: Henri Bellieu -->
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="featured-artist">
+            <div class="photo">
+              <!-- Ersetze mit: images/rokko/artists/henri-bellieu.jpg (400x400px) -->
+              <img src="images/demo/artists/featured-artist2.jpg" alt="Henri Bellieu">
+              <div class="rollover">
+                <div class="social">
+                  <a href="#"><i class="fa fa-spotify"></i></a>
+                  <a href="#"><i class="fa fa-apple"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+            <h4 class="name">Henri Bellieu</h4>
+            <p class="genre">Single: Petite Colibri</p>
+            <a href="artist-bellieu.html" class="btn square inverse">Biografie</a>
+          </div>
+        </div>
+
+        <!-- Artist 3: Fléur et Buenié -->
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="featured-artist">
+            <div class="photo">
+              <!-- Ersetze mit: images/rokko/artists/fleur-et-buenie.jpg (400x400px) -->
+              <img src="images/demo/artists/featured-artist3.jpg" alt="Fléur et Buenié">
+              <div class="rollover">
+                <div class="social">
+                  <a href="#"><i class="fa fa-spotify"></i></a>
+                  <a href="#"><i class="fa fa-apple"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+            <h4 class="name">Fléur et Buenié</h4>
+            <p class="genre">Single: Féu Leger</p>
+            <a href="artist-fleur.html" class="btn square inverse">Biografie</a>
+          </div>
+        </div>
+
+        <!-- Artist 4: Skank Schablonski -->
+        <div class="col-xs-12 col-sm-6 col-md-3">
+          <div class="featured-artist">
+            <div class="photo">
+              <!-- Ersetze mit: images/rokko/artists/skank-schablonski.jpg (400x400px) -->
+              <img src="images/demo/artists/featured-artist4.jpg" alt="Skank Schablonski">
+              <div class="rollover">
+                <div class="social">
+                  <a href="#"><i class="fa fa-spotify"></i></a>
+                  <a href="#"><i class="fa fa-apple"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+            <h4 class="name">Skank Schablonski</h4>
+            <p class="genre">Single: Kohle raus, der Merz kommt</p>
+            <a href="artist-schablonski.html" class="btn square inverse">Biografie</a>
+          </div>
+        </div>
+      </div>
+      <div class="voffset80"></div>
+    </div>
+  </section>
+
+  <!-- STAY IN TOUCH -->
+  <section class="section stay-in-touch inverse-color parallax-section" data-parallax-image="images/demo/stay-in-touch/bg-stay-in-touch.jpg" id="anchor02">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="voffset190"></div>
+          <p class="titulo">ROKKO!<br> Newsletter</p>
+          <div class="voffset20"></div>
+          <p class="cousine subtitulo">Bleib auf dem Laufenden über neue Releases und News.</p>
+          <div class="voffset30"></div>
+          <label for="stay-in-touch-email">DEINE E-MAIL</label>
+          <form class="" action="#" method="post">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8">
+                <input id="stay-in-touch-email" type="email" name="stay-in-touch-email" value="" placeholder="deine@email.de">
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <input class="btn square stay-in-touch-submit" type="submit" name="button" value="ABONNIEREN">
+              </div>
+            </div>
+          </form>
+          <div class="voffset190"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROKKO! BEATS (Discography) -->
+  <!-- 
+    ALBUM COVER MASZE:
+    - Quadratisch: 556x556 px (für Grid-Ansicht)
+    - Hochauflösend: 1000x1000 px (für Detail-Ansicht)
+    - Format: JPG oder PNG
+  -->
+  <section class="section discography" id="anchor03">
+    <div id="discography"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="voffset70"></div>
+          <div class="title-wrapper">
+            <h2 class="title">ROKKO! Beats</h2>
+          </div>
+          <p class="text-center cousine">Unsere neuesten Releases</p>
+          <div class="voffset80"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="carousel-discography js-flickity" data-flickity-options="{
+            &quot;cellAlign&quot;: &quot;center&quot;, &quot;wrapAround&quot;: false,
+            &quot;contain&quot;: false, &quot;prevNextButtons&quot;: false,&quot;imagesLoaded&quot;: true
+          }">
+          <li class="gallery-cell col-xs-12">
+            <div class="row">
+              <!-- Album: Neurocentric - SkaRamush Vandango -->
+              <div class="col-xs-12 col-md-6 item-disc">
+                <div class="info-album">
+                  <div class="cover open-disc" data-url="discs/disc-vandango.html">
+                    <!-- Ersetze mit: images/rokko/albums/neurocentric.jpg (556x556px) -->
+                    <img src="images/demo/albums/cover1.jpg" alt="Neurocentric">
+                    <div class="rollover">
+                      <i class="plus"></i>
+                      <p>Album anhören</p>
+                    </div>
+                  </div>
+                  <p class="album">Neurocentric</p>
+                  <p class="artist">SkaRamush Vandango</p>
+                </div>
+              </div>
+
+              <!-- Single: Petite Colibri - Henri Bellieu -->
+              <div class="col-xs-12 col-md-6 item-disc">
+                <div class="info-album">
+                  <div class="cover open-disc" data-url="discs/disc-bellieu.html">
+                    <!-- Ersetze mit: images/rokko/albums/petite-colibri.jpg (556x556px) -->
+                    <img src="images/demo/albums/cover2.jpg" alt="Petite Colibri">
+                    <div class="rollover">
+                      <i class="plus"></i>
+                      <p>Single anhören</p>
+                    </div>
+                  </div>
+                  <p class="album">Petite Colibri</p>
+                  <p class="artist">Henri Bellieu</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <!-- Single: Féu Leger - Fléur et Buenié -->
+              <div class="col-xs-12 col-md-6 item-disc">
+                <div class="info-album">
+                  <div class="cover open-disc" data-url="discs/disc-fleur.html">
+                    <!-- Ersetze mit: images/rokko/albums/feu-leger.jpg (556x556px) -->
+                    <img src="images/demo/albums/cover3.jpg" alt="Féu Leger">
+                    <div class="rollover">
+                      <i class="plus"></i>
+                      <p>Single anhören</p>
+                    </div>
+                  </div>
+                  <p class="album">Féu Leger</p>
+                  <p class="artist">Fléur et Buenié</p>
+                </div>
+              </div>
+              
+              <!-- Single: Kohle raus, der Merz kommt - Skank Schablonski -->
+              <div class="col-xs-12 col-md-6 item-disc">
+                <div class="info-album">
+                  <div class="cover open-disc" data-url="discs/disc-schablonski.html">
+                    <!-- Ersetze mit: images/rokko/albums/kohle-raus.jpg (556x556px) -->
+                    <img src="images/demo/albums/cover4.jpg" alt="Kohle raus, der Merz kommt">
+                    <div class="rollover">
+                      <i class="plus"></i>
+                      <p>Single anhören</p>
+                    </div>
+                  </div>
+                  <p class="album">Kohle raus, der Merz kommt</p>
+                  <p class="artist">Skank Schablonski</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="voffset100"></div>
+      </div>
+    </div>
+  </div>
+  <!-- DETAILS DISCO -->
+  <div id="project-show"></div>
+  <div class="section player-album project-window">
+    <div class="project-content"></div><!-- AJAX Dinamic Content -->
+  </div>
+</section>
+
+<!-- ROKKO! MERCH -->
+<section class="section inverse-color rokko-merch" id="anchor04">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 text-center">
+        <div class="voffset90"></div>
+        <div class="title-wrapper">
+          <h2 class="title inverse">ROKKO! Merch</h2>
+        </div>
+        <div class="voffset40"></div>
+        <p class="cousine">Hol dir ROKKO! Records Merchandise - T-Shirts, Hoodies und mehr!</p>
+        <div class="voffset50"></div>
+        
+        <!-- Platzhalter für Maskottchen-Bild -->
+        <!-- Ersetze mit: images/rokko/merch/rokko-mascot-shop.jpg -->
+        <div class="merch-image-placeholder">
+          <img src="images/demo/albums/cover.jpg" alt="ROKKO! Merch" style="max-width: 400px; border-radius: 10px;">
+        </div>
+        
+        <div class="voffset50"></div>
+        
+        <!-- Spreadshirt Shop Button -->
+        <a href="https://www.spreadshirt.de" target="_blank" class="btn square rokko-merch-btn">
+          <i class="fa fa-shopping-bag"></i> Zum Spreadshirt Shop
+        </a>
+        
+        <div class="voffset90"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROKKO! NEWS (ersetzt Tour Dates) -->
+<div class="section blog list-posts" id="anchor07">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="voffset70"></div>
+        <div class="title-wrapper">
+          <h2 class="title">ROKKO! News</h2>
+        </div>
+        <p class="text-center cousine">Neuigkeiten aus dem Label</p>
+        <div class="voffset80"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <!-- News Item 1 - Platzhalter -->
+        <article class="post-item">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="photo-post" id="image-post1" style="background: url('images/demo/blog/post1.jpg') no-repeat center"></div>
+              <p class="date">
+                <span class="day">01</span>
+                <span class="month">Dez</span>
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <div class="voffset30"></div>
+              <h4 class="title small"><span>Von:</span> ROKKO! Records | News</h4>
+              <h3 class="title post">Neues Album "Neurocentric" erscheint bald!</h3>
+              <p>SkaRamush Vandango arbeitet an seinem neuen Album "Neurocentric". Freut euch auf frische Beats und einzigartige Sounds. Mehr Infos folgen in Kürze!</p>
+              <a href="#" class="btn square inverse">Weiterlesen</a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- News Item 2 - Platzhalter -->
+        <article class="post-item">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="photo-post" style="background: url('images/demo/blog/post2.jpg') no-repeat center" id="image-post2"></div>
+              <p class="date">
+                <span class="day">15</span>
+                <span class="month">Nov</span>
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <div class="voffset30"></div>
+              <h4 class="title small"><span>Von:</span> ROKKO! Records | Release</h4>
+              <h3 class="title post">Henri Bellieu - "Petite Colibri" ist da!</h3>
+              <p>Die neue Single von Henri Bellieu ist jetzt auf allen Streaming-Plattformen verfügbar. Hör rein und lass dich von den melodischen Klängen verzaubern!</p>
+              <a href="#" class="btn square inverse">Weiterlesen</a>
+            </div>
+          </div>
+        </article>
+        
+        <!-- News Item 3 - Platzhalter -->
+        <article class="post-item">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="photo-post" style="background: url('images/demo/blog/post3.jpg') no-repeat center" id="image-post3"></div>
+              <p class="date">
+                <span class="day">01</span>
+                <span class="month">Nov</span>
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <div class="voffset30"></div>
+              <h4 class="title small"><span>Von:</span> ROKKO! Records | Label</h4>
+              <h3 class="title post">Willkommen bei ROKKO! Records</h3>
+              <p>Wir freuen uns, unsere neue Webseite zu präsentieren! Hier findest du alle Infos über unsere Künstler, Releases und News. Stay tuned!</p>
+              <a href="#" class="btn square inverse">Weiterlesen</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="voffset40"></div>
+  </div>
+</div>
+
+<!-- ROKKO! KONTAKT -->
+<section class="section inverse-color contact" id="anchor08">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="voffset70"></div>
+        <div class="title-wrapper">
+          <h2 class="title inverse">ROKKO! Kontakt</h2>
+        </div>
+        <p class="text-center cousine" style="color: #fff;">Hast du Fragen? Schreib uns!</p>
+        <div class="voffset50"></div>
+      </div>
+    </div>
+    
+    <!-- Kontaktformular -->
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <form class="rokko-contact-form" action="#" method="post">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="contact-name">Name</label>
+                <input type="text" id="contact-name" name="name" class="form-control" placeholder="Dein Name" required>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="contact-email">E-Mail</label>
+                <!-- E-Mail wird später ersetzt mit deiner E-Mail-Adresse -->
+                <input type="email" id="contact-email" name="email" class="form-control" placeholder="deine@email.de" required>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-subject">Betreff</label>
+            <select id="contact-subject" name="subject" class="form-control" required>
+              <option value="">Bitte wählen...</option>
+              <option value="booking">Booking Anfrage</option>
+              <option value="press">Presse Anfrage</option>
+              <option value="demo">Demo Einreichung</option>
+              <option value="merch">Merchandise Frage</option>
+              <option value="other">Sonstiges</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Nachricht</label>
+            <textarea id="contact-message" name="message" class="form-control" rows="5" placeholder="Deine Nachricht..." required></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn square">Nachricht senden</button>
+          </div>
+        </form>
+        <div class="voffset50"></div>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="row social text-center">
+      <a href="#" title="Facebook"><i class="fa fa-facebook fa-2x"></i></a>
+      <a href="#" title="Instagram"><i class="fa fa-instagram fa-2x"></i></a>
+      <a href="#" title="Spotify"><i class="fa fa-spotify fa-2x"></i></a>
+      <a href="#" title="SoundCloud"><i class="fa fa-soundcloud fa-2x"></i></a>
+      <a href="#" title="YouTube"><i class="fa fa-youtube fa-2x"></i></a>
+    </div>
+
+    <div class="voffset80"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p class="copy">© 2024 ROKKO! Records. Alle Rechte vorbehalten.</p>
+    <ul class="menu-footer">
+      <li><a href="#">Impressum</a></li>
+      <li><a href="#">Datenschutz</a></li>
+      <li><a href="#">AGB</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="scripts/vendor/jquery.js"></script>
+<script src="scripts/vendor/jquery.superslides.min.js"></script>
+<script src="scripts/vendor/flickity.pkgd.js"></script>
+<script src="scripts/vendor/audio.min.js"></script>
+<script src="scripts/vendor/twitterFetcher_min.js"></script>
+<script src="scripts/vendor/isotope.pkgd.min.js"></script>
+<script src="scripts/vendor/jquery.swipebox.min.js"></script>
+<script src="scripts/vendor/TimeCircles.js"></script>
+<script src="scripts/vendor/owl.carousel.min.js"></script>
+<script src="scripts/vendor/jquery.parallax.min.js"></script>
+
+<script src="scripts/discography.js"></script>
+<script src="scripts/news.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/YTPlayer.js"></script>
+
+<script src="scripts/vendor/bootstrap.js"></script>
+
+</body>
+</html>

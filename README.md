@@ -1,93 +1,112 @@
-# ROKKO Records - Website Template
+# ROKKO! Records - Plattenlabel Webseite
 
-## 🎵 SoundLab Music Template für Record Label
+## 🎵 Offizielle ROKKO! Records Webseite
 
-Dieses Repository enthält das **SoundLab Music Band & Musician Template** - perfekt geeignet für ein Record Label mit mehreren Künstlern.
-
----
-
-## 📋 Verfügbare Template-Varianten
-
-### 🏠 Homepage Designs
-
-| Template | Beschreibung | Datei |
-|----------|--------------|-------|
-| **Standard** | Helles Design mit Slider | `index.html` |
-| **Dark Version** | Dunkles, elegantes Design | `index-darkversion.html` |
-| **Video Background** | Mit Video-Hintergrund | `index-video.html` |
-| **Label Version** | **EMPFOHLEN für Record Label** - mit Artist-Sektion | `label.html` |
-
-### 👥 Für deine 4 Künstler (Artists)
-
-Die **`label.html`** Version enthält bereits eine "OUR ARTISTS" Sektion, die perfekt für deine 4 Künstler ist:
-- Künstler-Karten mit Foto
-- Biografie-Text
-- Social Media Links (Spotify, Apple Music, Beatport, Instagram)
-
-### 🎶 Discography & Player Features
-
-| Feature | Beschreibung |
-|---------|--------------|
-| **Album Covers** | Klickbare Cover die den Player öffnen |
-| **Audio Player** | Integrierter Player mit Play/Pause, Prev/Next |
-| **Song-Listen** | Tracklists für jedes Album |
-| **Streaming Links** | Spotify, Apple Music, Beatport Integration |
-
-### 📄 Weitere Seiten
-
-- `about.html` - Über uns / Biografie
-- `discography.html` - Alle Releases/Alben
-- `gallery.html` - Foto-Galerie
-- `news.html` / `blog.html` - News & Blog
-- `tour-dates.html` - Konzerttermine
-- `contact.html` - Kontaktformular
+Willkommen bei ROKKO! Records - deinem Plattenlabel für elektronische Musik.
 
 ---
 
-## 🎨 Farbschemen (17 Farben verfügbar)
+## 🚀 Hauptseite
 
-Die Farben können in `/styles/colors/` angepasst werden:
-- Gold, Red, Pink, Purple
-- Green, Lightgreen, Darkturquoise
-- Blue, Lightblue, Water
-- Yellow, Lightyellow
-- Silver, Militar, Malva, Caqui
-- Electric Red
+**`rokko-index.html`** - Die offizielle ROKKO! Records Startseite
+
+### Farbschema
+- **Primärfarbe:** Caqui/Khaki `#bdb76b`
+- **CSS-Klasse:** `palettecaqui`
 
 ---
 
-## 🚀 Empfehlung für Record Label
+## 👥 ROKKO! Crew (Künstler)
 
-Für dein Record Label mit 4 Künstlern empfehle ich:
+| Künstler | Release | Typ | Biografie-Seite |
+|----------|---------|-----|-----------------|
+| SkaRamush Vandango | Neurocentric | Album | `artist-vandango.html` |
+| Henri Bellieu | Petite Colibri | Single | `artist-bellieu.html` |
+| Fléur et Buenié | Féu Leger | Single | `artist-fleur.html` |
+| Skank Schablonski | Kohle raus, der Merz kommt | Single | `artist-schablonski.html` |
 
-1. **`label.html`** als Hauptseite (hat bereits Artist-Slider)
-2. **Dark Version** (`index-darkversion.html`) für modernes Look
-3. Kombiniere mit der **Discography** für alle Releases
+---
+
+## 📐 Bildmaße
+
+### Video (Hero-Bereich)
+| Verwendung | Maße | Format |
+|------------|------|--------|
+| Desktop | 1920 x 1080 px | MP4 (16:9) |
+| Mobil | 720 x 1280 px | MP4 (9:16) |
+
+### Künstlerfotos
+| Verwendung | Maße |
+|------------|------|
+| Kartenansicht | 400 x 400 px |
+| Detail-Ansicht | 600 x 800 px |
+
+### Album-Cover
+| Verwendung | Maße |
+|------------|------|
+| Grid-Ansicht | 556 x 556 px |
+| Detail-Ansicht | 1000 x 1000 px |
 
 ---
 
 ## 📁 Struktur
 
 ```
-├── index.html              # Standard Homepage
-├── label.html              # 🌟 RECORD LABEL VERSION
-├── index-darkversion.html  # Dark Theme
-├── discography.html        # Album-Übersicht
-├── discs/                  # Album-Detail-Seiten
-├── about.html              # Biografie
-├── contact.html            # Kontakt
-├── images/                 # Bilder & Cover
-├── mp3/                    # Audio-Dateien
-├── scripts/                # JavaScript (Player etc.)
-└── styles/                 # CSS & Farbschemen
+├── rokko-index.html         # 🌟 HAUPTSEITE
+├── artist-vandango.html     # SkaRamush Vandango Biografie
+├── artist-bellieu.html      # Henri Bellieu Biografie
+├── artist-fleur.html        # Fléur et Buenié Biografie
+├── artist-schablonski.html  # Skank Schablonski Biografie
+├── SCHUTZPROTOKOLL.md       # ⚠️ Änderungs-Protokoll
+├── styles/
+│   ├── rokko-custom.css     # ROKKO! Custom Styles
+│   └── colors/
+│       └── color-caqui.css  # Farbschema (NICHT ÄNDERN!)
+└── images/
+    └── rokko/               # Alle ROKKO! Bilder
+        ├── artists/         # Künstlerfotos
+        ├── albums/          # Album-Cover
+        ├── merch/           # Merchandise-Bilder
+        └── logo/            # Logos
 ```
+
+---
+
+## 📋 Sektionen
+
+| Sektion | Name | Beschreibung |
+|---------|------|--------------|
+| Home | ROKKO! Records | Video-Header mit Welcome-Text |
+| Crew | ROKKO! Crew | 4 Künstler mit Biografien |
+| Beats | ROKKO! Beats | Diskografie/Releases |
+| Merch | ROKKO! Merch | Spreadshirt-Shop-Link |
+| News | ROKKO! News | Neuigkeiten vom Label |
+| Kontakt | ROKKO! Kontakt | Kontaktformular |
+
+---
+
+## ⚠️ WICHTIG
+
+Vor jeder Änderung das **`SCHUTZPROTOKOLL.md`** lesen!
 
 ---
 
 ## 🛠️ Nächste Schritte
 
-1. **Design wählen**: `label.html` oder `index-darkversion.html`
-2. **Künstler eintragen**: Namen, Biografien, Fotos
-3. **Musik hinzufügen**: MP3s in `/mp3/` Ordner
-4. **Streaming Links**: Spotify, Beatport, Apple Music URLs eintragen
-5. **Bilder ersetzen**: Cover & Künstlerfotos hochladen
+1. ✅ Hauptseite mit Farbschema erstellt
+2. ✅ 4 Künstler-Biografieseiten erstellt
+3. ✅ Sektionen umbenannt (ROKKO! Crew, ROKKO! Beats, etc.)
+4. ✅ Merchandise-Sektion mit Spreadshirt-Link
+5. ✅ ROKKO! News Sektion (ersetzt Tour Dates)
+6. ✅ Kontaktformular
+7. ✅ Schutzprotokoll erstellt
+
+### Ausstehend:
+- [ ] Logo-Bild hochladen
+- [ ] Hero-Video erstellen (1920x1080 oder 720x1280)
+- [ ] Künstlerfotos hochladen
+- [ ] Album-Cover hochladen
+- [ ] Maskottchen-Bild für Merch hochladen
+- [ ] E-Mail-Adresse für Kontaktformular einrichten
+- [ ] Biografien der Künstler schreiben
+- [ ] Social Media Links eintragen
