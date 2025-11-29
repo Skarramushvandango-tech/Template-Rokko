@@ -101,29 +101,52 @@
 
   <!-- INTRO mit Video -->
   <!-- 
-    VIDEO MASZE:
-    - Desktop: 1920x1080 px (16:9 Format) - empfohlen für beste Qualität
-    - Mobil: 720x1280 px (9:16 Format) - für vertikale Ansicht
-    - Unterstützte Formate: MP4 (H.264), WebM
-    - Maximale Dateigröße empfohlen: 10-15 MB für schnelles Laden
+    VIDEO FORMAT (Self-Hosted HTML5 Video):
+    ========================================
+    EIN VIDEO FÜR ALLE GERÄTE (16:9 Querformat):
+    
+    DESKTOP: 1920 x 1080 px (Full HD)
+    MOBIL:   1280 x 720 px (HD) - gleiche Datei, wird automatisch skaliert
+    
+    FORMAT: MP4 (H.264 Codec) oder WebM
+    DATEIGRÖSSE: Max. 10-15 MB empfohlen
+    
+    ANLEITUNG:
+    1. Erstelle dein Video in 1920x1080 px (16:9)
+    2. Lade es als intro-video.mp4 in: images/rokko/video/
+    3. Das Video skaliert automatisch auf allen Geräten
   -->
-  <section class="intro full-width full-height jIntro" id="anchor00">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          
-          <!-- Video Player - Ersetze die YouTube Video-ID mit deinem eigenen Video -->
-          <!-- Aktuell: Platzhalter-Video. Ersetze 'MeyI1X-Pl9s' mit deiner Video-ID -->
-          <div class="playerVideo" data-property="{videoURL:'MeyI1X-Pl9s',showControls:false,containment:'self',autoPlay:true, mute:true, startAt:0,opacity:1,ratio:'16/9', addRaster:true}">
-            <a href="#" class="play-video">Play/Pause</a>
-          </div>
-
-          <!-- Video zeigt am Ende das ROKKO! Records Logo - kein Overlay nötig -->
-
-        </div>
-      </div>
+  <section class="intro full-width full-height jIntro rokko-video-intro" id="anchor00">
+    <!-- Self-Hosted HTML5 Video Player - KEIN YOUTUBE, KEINE WERBUNG -->
+    <div class="rokko-video-container">
+      <!-- Ein Video für alle Geräte (16:9) - skaliert automatisch -->
+      <video class="rokko-intro-video" autoplay muted loop playsinline id="intro-video">
+        <source src="images/rokko/video/intro-video.mp4" type="video/mp4">
+        <source src="images/rokko/video/intro-video.webm" type="video/webm">
+      </video>
+      
+      <!-- Sound Toggle Button -->
+      <button class="rokko-sound-toggle" onclick="toggleVideoSound()" title="Ton an/aus">
+        <i class="fa fa-volume-off" id="sound-icon"></i>
+      </button>
     </div>
+    <!-- KEIN TEXT OVERLAY - Video zeigt am Ende das ROKKO! Records Logo -->
   </section>
+  
+  <script>
+    // Sound Toggle für Video
+    function toggleVideoSound() {
+      var video = document.getElementById('intro-video');
+      var icon = document.getElementById('sound-icon');
+      if (video.muted) {
+        video.muted = false;
+        icon.className = 'fa fa-volume-up';
+      } else {
+        video.muted = true;
+        icon.className = 'fa fa-volume-off';
+      }
+    }
+  </script>
 
   <!-- PLAYER -->
   <div class="player horizontal">
