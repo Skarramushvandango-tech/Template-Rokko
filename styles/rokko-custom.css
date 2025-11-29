@@ -1,0 +1,393 @@
+/**
+ * ============================================
+ * ROKKO! RECORDS - Custom Styles
+ * ============================================
+ * 
+ * WICHTIG - SCHUTZPROTOKOLL:
+ * Diese Datei enthält angepasste Styles für ROKKO! Records.
+ * Änderungen an dieser Datei sollten NUR nach Rücksprache erfolgen.
+ * 
+ * BASIS-KONFIGURATION (NICHT ÄNDERN):
+ * - Primärfarbe: #bdb76b (Caqui/Khaki)
+ * - Farbschema: palettecaqui
+ * - Schriftarten: Impact/Arial Black (Headlines - EXTREM FETT), Roboto (Text), Cousine (Mono)
+ * - Header-Höhe: 100px
+ * 
+ * Letzte Aktualisierung: 2024
+ * ============================================
+ */
+
+/* ============================================
+   SCHRIFTARTEN - Impact/Arial Black für Headlines (EXTREM FETT)
+   Diese sind System-Schriften die IMMER verfügbar und SEHR FETT sind!
+   ============================================ */
+h1, h2, h3, h4, h5, h6,
+.title,
+.title-wrapper h2,
+.navbar-nav > li > a,
+.featured-artist .name,
+.info-album .album,
+.rokko-merch h2,
+.upcomming-events-list-title,
+.post-item h3,
+.post-item .title.post,
+p.album,
+.info-album-player .album-title {
+    font-family: Impact, 'Arial Black', 'Helvetica Neue', Helvetica, sans-serif !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Alle Titel noch stärker überschreiben */
+body h1, body h2, body h3, body h4, body h5, body h6 {
+    font-family: Impact, 'Arial Black', 'Helvetica Neue', Helvetica, sans-serif !important;
+    font-weight: 900 !important;
+}
+
+body .title,
+body .title-wrapper h2.title {
+    font-family: Impact, 'Arial Black', 'Helvetica Neue', Helvetica, sans-serif !important;
+    font-weight: 900 !important;
+    font-size: 42px;
+}
+
+/* ============================================
+   HEADER - Größerer Header für Logo
+   Aktuelle Höhe: 100px (vorher: 80px)
+   ============================================ */
+#jHeader {
+    min-height: 100px !important;
+}
+
+#jHeader .navbar {
+    min-height: 100px !important;
+    padding: 15px 0;
+}
+
+#jHeader .navbar-brand {
+    height: 70px !important;
+    padding: 5px 15px !important;
+}
+
+#jHeader .navbar-brand img {
+    max-height: 60px !important;
+    width: auto;
+}
+
+#jHeader .navbar-nav > li > a {
+    padding-top: 38px;
+    padding-bottom: 38px;
+    font-size: 13px;
+    font-weight: 700 !important;
+}
+
+@media (max-width: 991px) {
+    #jHeader .navbar-brand img {
+        max-height: 50px !important;
+    }
+    
+    #jHeader .navbar-nav > li > a {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+
+/* ============================================
+   ALBUM COVER - QUADRATISCH (380x380 px)
+   Wichtig: Cover sind immer quadratisch!
+   ============================================ */
+.discography .info-album .cover {
+    width: 100%;
+    padding-bottom: 100%; /* 1:1 Aspect Ratio = Quadratisch */
+    position: relative;
+    overflow: hidden;
+}
+
+.discography .info-album .cover img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.discography .info-album .cover .rollover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Carousel Discography Items - Quadratische Cover */
+.carousel-discography .gallery-cell .info-album .cover {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.carousel-discography .gallery-cell .info-album .cover img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* Latest Album Cover - auch quadratisch */
+.latest-album .info-album .cover img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    max-width: 380px;
+}
+
+/* ============================================
+   FEATURED ARTISTS (ROKKO! Crew)
+   ============================================ */
+.featured-artists {
+    background: #f5f5f5;
+}
+
+.featured-artist {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.featured-artist .photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.featured-artist .photo img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.featured-artist .photo:hover img {
+    transform: scale(1.05);
+}
+
+.featured-artist .rollover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(189, 183, 107, 0.9); /* Caqui/Khaki */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.featured-artist .photo:hover .rollover {
+    opacity: 1;
+}
+
+.featured-artist .rollover .social a {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: transform 0.2s ease;
+}
+
+.featured-artist .rollover .social a:hover {
+    transform: scale(1.2);
+}
+
+.featured-artist .name {
+    font-family: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.featured-artist .genre {
+    font-family: 'Cousine', monospace;
+    font-size: 12px;
+    color: #bdb76b; /* Caqui/Khaki */
+    margin-bottom: 15px;
+}
+
+/* ============================================
+   ROKKO! MERCH Section
+   ============================================ */
+.rokko-merch {
+    background: #333;
+}
+
+.rokko-merch-btn {
+    background-color: #bdb76b !important; /* Caqui/Khaki */
+    color: #333 !important;
+    padding: 15px 40px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 5px !important;
+    transition: all 0.3s ease !important;
+}
+
+.rokko-merch-btn:hover {
+    background-color: #a9a35a !important;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(189, 183, 107, 0.4);
+}
+
+.rokko-merch-btn i {
+    margin-right: 10px;
+}
+
+.merch-image-placeholder {
+    display: inline-block;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+}
+
+/* Merch Bild - RECHTECKIG 700x400px */
+.rokko-merch-image {
+    max-width: 700px;
+    width: 100%;
+    height: 285px !important; /* Feste Höhe für 7:4 Verhältnis bei 700px Breite */
+    aspect-ratio: 7 / 4 !important; /* Rechteckig: 700x400 */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+    .rokko-merch-image {
+        height: auto !important;
+        aspect-ratio: 7 / 4 !important;
+    }
+}
+
+/* ============================================
+   KONTAKT FORMULAR
+   ============================================ */
+.rokko-contact-form .form-group {
+    margin-bottom: 25px;
+}
+
+.rokko-contact-form label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #bdb76b; /* Caqui/Khaki */
+    margin-bottom: 8px;
+    display: block;
+}
+
+.rokko-contact-form .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(189, 183, 107, 0.3);
+    border-radius: 5px;
+    padding: 15px;
+    color: #fff;
+    font-family: 'Cousine', monospace;
+    transition: all 0.3s ease;
+}
+
+.rokko-contact-form .form-control:focus {
+    border-color: #bdb76b;
+    box-shadow: 0 0 10px rgba(189, 183, 107, 0.3);
+    outline: none;
+}
+
+.rokko-contact-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.rokko-contact-form select.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23bdb76b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+}
+
+.rokko-contact-form select.form-control option {
+    background: #333;
+    color: #fff;
+}
+
+/* ============================================
+   SOCIAL LINKS (Footer Contact)
+   ============================================ */
+.contact .social a {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 15px;
+    transition: all 0.3s ease;
+}
+
+.contact .social a:hover {
+    color: #bdb76b; /* Caqui/Khaki */
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+    background: #bdb76b !important; /* Caqui/Khaki */
+}
+
+footer .copy {
+    color: #333;
+}
+
+footer .menu-footer li a {
+    color: #333;
+}
+
+footer .menu-footer li a:hover {
+    color: #fff;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.text-rokko {
+    color: #bdb76b !important;
+}
+
+.bg-rokko {
+    background-color: #bdb76b !important;
+}
+
+.btn-rokko {
+    background-color: #bdb76b !important;
+    color: #333 !important;
+    border-color: #bdb76b !important;
+}
+
+.btn-rokko:hover {
+    background-color: #a9a35a !important;
+    border-color: #a9a35a !important;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 991px) {
+    .featured-artist {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .rokko-contact-form .form-control {
+        padding: 12px;
+    }
+    
+    .contact .social a {
+        margin: 0 10px;
+    }
+}
