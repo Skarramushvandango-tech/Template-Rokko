@@ -29,11 +29,17 @@ Willkommen bei ROKKO! Records - deinem Plattenlabel für elektronische Musik.
 
 ## 📐 Bildmaße
 
-### Video (Hero-Bereich)
-| Verwendung | Maße | Format |
-|------------|------|--------|
-| Desktop | 1920 x 1080 px | MP4 (16:9) |
-| Mobil | 720 x 1280 px | MP4 (9:16) |
+### Video (Hero-Bereich) - Self-Hosted HTML5
+| Verwendung | Maße | Format | Dateiname |
+|------------|------|--------|-----------|
+| Desktop | 1920 x 1080 px | MP4 (H.264), 16:9 | `images/rokko/video/intro-video.mp4` |
+| Mobil | 720 x 1280 px | MP4 (H.264), 9:16 | `images/rokko/video/intro-video-mobile.mp4` |
+
+**Wichtig:** 
+- Kein YouTube! Self-hosted Video = keine Werbung
+- Video läuft automatisch stumm
+- Sound-Button unten rechts zum Einschalten
+- Max. Dateigröße: 10-15 MB empfohlen
 
 ### Künstlerfotos
 | Verwendung | Maße |
