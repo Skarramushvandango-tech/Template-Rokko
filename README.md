@@ -110,3 +110,10 @@ Vor jeder Änderung das **`SCHUTZPROTOKOLL.md`** lesen!
 - [ ] E-Mail-Adresse für Kontaktformular einrichten
 - [ ] Biografien der Künstler schreiben
 - [ ] Social Media Links eintragen
+
+---
+
+## 📚 Dokumentation
+
+- **[SCHUTZPROTOKOLL.md](SCHUTZPROTOKOLL.md)** - Richtlinien für Änderungen an der Webseite
+- **[docs/README_WEBSITE.md](docs/README_WEBSITE.md)** - Anleitung zum lokalen Testen und GitHub Pages Veröffentlichung
