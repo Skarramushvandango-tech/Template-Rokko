@@ -1,0 +1,481 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Farbschemen Übersicht - Soundlab Template</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|Montserrat:300,400,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="styles/vendor/bootstrap.css">
+  <link rel="stylesheet" href="styles/vendor/font-awesome.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  
+  <!-- All Color Schemes -->
+  <link rel="stylesheet" href="styles/colors/color-gold.css">
+  <link rel="stylesheet" href="styles/colors/color-red.css">
+  <link rel="stylesheet" href="styles/colors/color-pink.css">
+  <link rel="stylesheet" href="styles/colors/color-purple.css">
+  <link rel="stylesheet" href="styles/colors/color-green.css">
+  <link rel="stylesheet" href="styles/colors/color-lightgreen.css">
+  <link rel="stylesheet" href="styles/colors/color-darkturquoise.css">
+  <link rel="stylesheet" href="styles/colors/color-lightblue.css">
+  <link rel="stylesheet" href="styles/colors/color-water.css">
+  <link rel="stylesheet" href="styles/colors/color-yellow.css">
+  <link rel="stylesheet" href="styles/colors/color-lightyellow.css">
+  <link rel="stylesheet" href="styles/colors/color-silver.css">
+  <link rel="stylesheet" href="styles/colors/color-electricred.css">
+  <link rel="stylesheet" href="styles/colors/color-lightred.css">
+  <link rel="stylesheet" href="styles/colors/color-malva.css">
+  <link rel="stylesheet" href="styles/colors/color-militar.css">
+  <link rel="stylesheet" href="styles/colors/color-caqui.css">
+
+  <style>
+    body {
+      background: #1a1a1a;
+      padding: 40px 20px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    h1 {
+      color: white;
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 36px;
+      font-weight: 300;
+    }
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .color-card {
+      background: #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .color-header {
+      padding: 25px;
+      color: white;
+      text-align: center;
+    }
+    .color-header h3 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .color-header .color-code {
+      font-size: 14px;
+      opacity: 0.8;
+      font-family: monospace;
+    }
+    .color-preview {
+      padding: 20px;
+      background: #333;
+    }
+    .color-preview .btn {
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 25px;
+      color: white;
+      text-decoration: none;
+      margin: 5px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .color-preview .elements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .color-preview .dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .color-preview .bar {
+      height: 5px;
+      width: 100%;
+      border-radius: 3px;
+      margin-top: 15px;
+    }
+    
+    /* Gold */
+    .palettegold .color-header { background: #c99d29; }
+    .palettegold .btn { background: #c99d29; }
+    .palettegold .dot, .palettegold .bar { background: #c99d29; }
+    
+    /* Red */
+    .palettered .color-header { background: #e74c3c; }
+    .palettered .btn { background: #e74c3c; }
+    .palettered .dot, .palettered .bar { background: #e74c3c; }
+    
+    /* Pink */
+    .palettepink .color-header { background: #e91e63; }
+    .palettepink .btn { background: #e91e63; }
+    .palettepink .dot, .palettepink .bar { background: #e91e63; }
+    
+    /* Purple */
+    .palettepurple .color-header { background: #9b59b6; }
+    .palettepurple .btn { background: #9b59b6; }
+    .palettepurple .dot, .palettepurple .bar { background: #9b59b6; }
+    
+    /* Green */
+    .palettegreen .color-header { background: #27ae60; }
+    .palettegreen .btn { background: #27ae60; }
+    .palettegreen .dot, .palettegreen .bar { background: #27ae60; }
+    
+    /* Light Green */
+    .palettelightgreen .color-header { background: #2ecc71; }
+    .palettelightgreen .btn { background: #2ecc71; }
+    .palettelightgreen .dot, .palettelightgreen .bar { background: #2ecc71; }
+    
+    /* Dark Turquoise */
+    .palettedarkturquoise .color-header { background: #00ced1; }
+    .palettedarkturquoise .btn { background: #00ced1; }
+    .palettedarkturquoise .dot, .palettedarkturquoise .bar { background: #00ced1; }
+    
+    /* Light Blue */
+    .palettelightblue .color-header { background: #3498db; }
+    .palettelightblue .btn { background: #3498db; }
+    .palettelightblue .dot, .palettelightblue .bar { background: #3498db; }
+    
+    /* Water */
+    .palettewater .color-header { background: #1abc9c; }
+    .palettewater .btn { background: #1abc9c; }
+    .palettewater .dot, .palettewater .bar { background: #1abc9c; }
+    
+    /* Yellow */
+    .paletteyellow .color-header { background: #f1c40f; }
+    .paletteyellow .btn { background: #f1c40f; color: #333; }
+    .paletteyellow .dot, .paletteyellow .bar { background: #f1c40f; }
+    
+    /* Light Yellow */
+    .palettelightyellow .color-header { background: #f39c12; }
+    .palettelightyellow .btn { background: #f39c12; }
+    .palettelightyellow .dot, .palettelightyellow .bar { background: #f39c12; }
+    
+    /* Silver */
+    .palettesilver .color-header { background: #95a5a6; }
+    .palettesilver .btn { background: #95a5a6; }
+    .palettesilver .dot, .palettesilver .bar { background: #95a5a6; }
+    
+    /* Electric Red */
+    .paletteelectricred .color-header { background: #ff0040; }
+    .paletteelectricred .btn { background: #ff0040; }
+    .paletteelectricred .dot, .paletteelectricred .bar { background: #ff0040; }
+    
+    /* Light Red */
+    .palettelightred .color-header { background: #e57373; }
+    .palettelightred .btn { background: #e57373; }
+    .palettelightred .dot, .palettelightred .bar { background: #e57373; }
+    
+    /* Malva */
+    .palettemalva .color-header { background: #8e44ad; }
+    .palettemalva .btn { background: #8e44ad; }
+    .palettemalva .dot, .palettemalva .bar { background: #8e44ad; }
+    
+    /* Militar */
+    .palettemilitar .color-header { background: #556b2f; }
+    .palettemilitar .btn { background: #556b2f; }
+    .palettemilitar .dot, .palettemilitar .bar { background: #556b2f; }
+    
+    /* Caqui */
+    .palettecaqui .color-header { background: #bdb76b; }
+    .palettecaqui .btn { background: #bdb76b; color: #333; }
+    .palettecaqui .dot, .palettecaqui .bar { background: #bdb76b; }
+  </style>
+</head>
+<body>
+  <h1>🎨 Verfügbare Farbschemen (17 Farben)</h1>
+  
+  <div class="color-grid">
+    
+    <div class="color-card palettegold">
+      <div class="color-header">
+        <h3>Gold</h3>
+        <div class="color-code">#c99d29</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettered">
+      <div class="color-header">
+        <h3>Red</h3>
+        <div class="color-code">#e74c3c</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettepink">
+      <div class="color-header">
+        <h3>Pink</h3>
+        <div class="color-code">#e91e63</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettepurple">
+      <div class="color-header">
+        <h3>Purple</h3>
+        <div class="color-code">#9b59b6</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettegreen">
+      <div class="color-header">
+        <h3>Green</h3>
+        <div class="color-code">#27ae60</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettelightgreen">
+      <div class="color-header">
+        <h3>Light Green</h3>
+        <div class="color-code">#2ecc71</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettedarkturquoise">
+      <div class="color-header">
+        <h3>Dark Turquoise</h3>
+        <div class="color-code">#00ced1</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettelightblue">
+      <div class="color-header">
+        <h3>Light Blue</h3>
+        <div class="color-code">#3498db</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettewater">
+      <div class="color-header">
+        <h3>Water</h3>
+        <div class="color-code">#1abc9c</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card paletteyellow">
+      <div class="color-header">
+        <h3>Yellow</h3>
+        <div class="color-code">#f1c40f</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettelightyellow">
+      <div class="color-header">
+        <h3>Light Yellow / Orange</h3>
+        <div class="color-code">#f39c12</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettesilver">
+      <div class="color-header">
+        <h3>Silver</h3>
+        <div class="color-code">#95a5a6</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card paletteelectricred">
+      <div class="color-header">
+        <h3>Electric Red</h3>
+        <div class="color-code">#ff0040</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettelightred">
+      <div class="color-header">
+        <h3>Light Red</h3>
+        <div class="color-code">#e57373</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettemalva">
+      <div class="color-header">
+        <h3>Malva</h3>
+        <div class="color-code">#8e44ad</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettemilitar">
+      <div class="color-header">
+        <h3>Militar</h3>
+        <div class="color-code">#556b2f</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+    <div class="color-card palettecaqui">
+      <div class="color-header">
+        <h3>Caqui / Khaki</h3>
+        <div class="color-code">#bdb76b</div>
+      </div>
+      <div class="color-preview">
+        <div class="elements">
+          <a href="#" class="btn">Button</a>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div style="text-align: center; margin-top: 50px; color: #666;">
+    <p>Um ein Farbschema zu aktivieren, füge die entsprechende CSS-Datei hinzu und die Palette-Klasse zum Body-Tag:</p>
+    <code style="background: #333; padding: 10px 20px; border-radius: 5px; display: inline-block; margin-top: 10px;">
+      &lt;body class="palettegold"&gt;
+    </code>
+  </div>
+  
+</body>
+</html>
