@@ -214,7 +214,7 @@ body {
 .rokko-merch,
 header,
 #jHeader {
-    background-color: #333 !important; /* Dunkel bleibt dunkel */
+    background-color: #5D4037 !important; /* Dunkelbraun */
 }
 
 /* Footer in Sandfarbe */
@@ -241,7 +241,7 @@ footer {
 .post-item p,
 .post-item h3,
 .post-item h4 {
-    color: #333 !important;
+    color: #5D4037 !important; /* Dunkelbraun */
 }
 
 /* Helle Schrift auf DUNKLEN Hintergründen */
@@ -329,7 +329,7 @@ header a,
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 5px;
-    color: #333;
+    color: #5D4037; /* Dunkelbraun */
 }
 
 .featured-artist .genre {
@@ -343,12 +343,12 @@ header a,
    ROKKO! MERCH Section
    ============================================ */
 .rokko-merch {
-    background: #333;
+    background: #5D4037; /* Dunkelbraun */
 }
 
 .rokko-merch-btn {
     background-color: #DEC292 !important; /* Sandfarben */
-    color: #333 !important;
+    color: #5D4037 !important; /* Dunkelbraun */
     padding: 15px 40px !important;
     font-size: 16px !important;
     font-weight: 700 !important;
@@ -466,11 +466,11 @@ footer {
 }
 
 footer .copy {
-    color: #333;
+    color: #5D4037; /* Dunkelbraun */
 }
 
 footer .menu-footer li a {
-    color: #333;
+    color: #5D4037; /* Dunkelbraun */
 }
 
 footer .menu-footer li a:hover {
@@ -490,7 +490,7 @@ footer .menu-footer li a:hover {
 
 .btn-rokko {
     background-color: #DEC292 !important;
-    color: #333 !important;
+    color: #5D4037 !important; /* Dunkelbraun */
     border-color: #DEC292 !important;
 }
 
@@ -542,7 +542,7 @@ footer .menu-footer li a:hover {
     border-radius: 50%;
     background: rgba(222, 194, 146, 0.9); /* Sandfarben */
     border: none;
-    color: #333;
+    color: #5D4037; /* Dunkelbraun */
     font-size: 20px;
     cursor: pointer;
     z-index: 100;
