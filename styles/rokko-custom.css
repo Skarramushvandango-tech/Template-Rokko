@@ -61,13 +61,13 @@ body .title-wrapper h2.title {
 
 #jHeader .navbar {
     min-height: auto !important;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
-/* Zentriertes Logo oben */
+/* Zentriertes Logo oben - GROSS */
 .rokko-logo-centered {
     text-align: center;
-    padding: 15px 0 10px 0;
+    padding: 20px 0 15px 0;
 }
 
 .rokko-logo-centered a {
@@ -75,8 +75,9 @@ body .title-wrapper h2.title {
 }
 
 .rokko-logo-centered img {
-    max-height: 80px;
+    max-height: 320px;
     width: auto;
+    max-width: 90%;
     display: block;
     margin: 0 auto;
 }
@@ -106,7 +107,7 @@ body .title-wrapper h2.title {
 /* Mobile Ansicht */
 @media (max-width: 991px) {
     .rokko-logo-centered img {
-        max-height: 60px;
+        max-height: 200px;
     }
     
     .rokko-nav-centered {
@@ -255,7 +256,7 @@ footer {
 .rokko-merch h1, .rokko-merch h2,
 header a,
 #jHeader a {
-    color: #fff !important;
+    color: #DEC292 !important; /* Sandfarben statt weiß */
 }
 
 /* Caqui-Akzentfarbe für bestimmte Texte */
@@ -313,7 +314,7 @@ header a,
 }
 
 .featured-artist .rollover .social a {
-    color: #fff;
+    color: #DEC292; /* Sandfarben statt weiß */
     font-size: 24px;
     margin: 0 10px;
     transition: transform 0.2s ease;
@@ -408,11 +409,11 @@ header a,
 }
 
 .rokko-contact-form .form-control {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(93, 64, 55, 0.3); /* Dunkelbraun transparent */
     border: 1px solid rgba(222, 194, 146, 0.3);
     border-radius: 5px;
     padding: 15px;
-    color: #fff;
+    color: #DEC292; /* Sandfarben statt weiß */
     font-family: 'Cousine', monospace;
     transition: all 0.3s ease;
 }
@@ -424,7 +425,7 @@ header a,
 }
 
 .rokko-contact-form .form-control::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(222, 194, 146, 0.6); /* Sandfarben statt weiß */
 }
 
 .rokko-contact-form select.form-control {
@@ -438,8 +439,8 @@ header a,
 }
 
 .rokko-contact-form select.form-control option {
-    background: #333;
-    color: #fff;
+    background: #5D4037; /* Dunkelbraun statt grau */
+    color: #DEC292; /* Sandfarben statt weiß */
 }
 
 /* ============================================
@@ -473,7 +474,7 @@ footer .menu-footer li a {
 }
 
 footer .menu-footer li a:hover {
-    color: #fff;
+    color: #5D4037; /* Dunkelbraun statt weiß */
 }
 
 /* ============================================
