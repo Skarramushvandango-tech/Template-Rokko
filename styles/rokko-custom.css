@@ -159,7 +159,7 @@ section.discography .item-disc .info-album .cover .rollover,
    Dunkle Sektionen bleiben DUNKEL!
    ============================================ */
 body {
-    background-color: #f5f0e1 !important; /* Helles Sand/Beige */
+    background-color: #c2b280 !important; /* Sandfarben */
 }
 
 /* NUR helle Sektionen (vorher weiß) werden Sand-farben */
@@ -168,7 +168,7 @@ body {
 .latest-album,
 .blog.list-posts,
 .list-posts:not(.inverse-color) {
-    background-color: #f5f0e1 !important; /* Helles Sand/Beige */
+    background-color: #c2b280 !important; /* Sandfarben */
 }
 
 /* DUNKLE Sektionen bleiben DUNKEL */
@@ -234,7 +234,7 @@ header a,
    FEATURED ARTISTS (ROKKO! Crew)
    ============================================ */
 .featured-artists {
-    background: #f5f0e1 !important; /* Sand/Beige statt weiß */
+    background: #c2b280 !important; /* Sandfarben */
 }
 
 .featured-artist {
@@ -522,24 +522,24 @@ footer .menu-footer li a:hover {
 }
 
 /* ============================================
-   DISCOGRAPHY SECTION - Sand Hintergrund
+   DISCOGRAPHY SECTION - Sandfarben Hintergrund
    ============================================ */
 .discography,
 section.discography {
-    background-color: #f5f0e1 !important;
+    background-color: #c2b280 !important; /* Sandfarben */
 }
 
 /* ============================================
-   BLOG/NEWS SECTION - Sand Hintergrund
+   BLOG/NEWS SECTION - Sandfarben Hintergrund
    ============================================ */
 .blog,
 .list-posts,
 .blog.list-posts {
-    background-color: #f5f0e1 !important;
+    background-color: #c2b280 !important; /* Sandfarben */
 }
 
 .post-item {
-    background-color: #f5f0e1 !important;
+    background-color: #c2b280 !important; /* Sandfarben */
 }
 
 /* ============================================
