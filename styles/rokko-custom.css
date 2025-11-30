@@ -446,9 +446,15 @@ header a,
 /* ============================================
    SOCIAL LINKS (Footer Contact)
    ============================================ */
+.contact,
+section.contact,
+.contact.inverse-color {
+    background-color: #5D4037 !important; /* Dunkelbraun */
+}
+
 .contact .social a {
     display: inline-block;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(222, 194, 146, 0.7); /* Sandfarben transparent */
     margin: 0 15px;
     transition: all 0.3s ease;
 }
@@ -579,10 +585,25 @@ section.discography {
 }
 
 /* ============================================
-   STAY IN TOUCH / NEWSLETTER - Dunkel bleibt dunkel
+   STAY IN TOUCH / NEWSLETTER - Dunkelbraun
    ============================================ */
-.stay-in-touch.inverse-color {
-    /* Bleibt dunkel - kein Änderung */
+.stay-in-touch,
+.stay-in-touch.inverse-color,
+section.stay-in-touch {
+    background-color: #5D4037 !important; /* Dunkelbraun */
+    background-image: none !important;
+}
+
+.stay-in-touch h1, .stay-in-touch h2, .stay-in-touch h3,
+.stay-in-touch p, .stay-in-touch label {
+    color: #DEC292 !important; /* Sandfarben */
+}
+
+.stay-in-touch .btn,
+.stay-in-touch-submit {
+    background-color: #DEC292 !important;
+    color: #5D4037 !important;
+    border-color: #DEC292 !important;
 }
 
 /* ============================================
