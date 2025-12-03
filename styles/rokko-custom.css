@@ -97,8 +97,7 @@ body .title-wrapper h2.title {
 
 /* Hide the burger menu button - navigation always visible */
 #jHeader .navbar-toggle,
-#jHeader .navbar-header .navbar-toggle,
-.navbar-header {
+#jHeader .navbar-header .navbar-toggle {
     display: none !important;
 }
 
@@ -552,11 +551,12 @@ footer .menu-footer li a:hover {
    EIN Video (16:9) für alle Geräte - skaliert automatisch
    Responsive: placed directly below header, no overlap
    ============================================ */
-.rokko-video-intro {
-    position: relative !important;
-    width: 100% !important;
+section.intro.rokko-video-intro,
+.rokko-video-intro.full-width.full-height {
+    position: relative;
+    width: 100%;
     /* Fluid height that scales with viewport */
-    height: auto !important;
+    height: auto;
     min-height: 200px;
     overflow: hidden;
     background: #000;
@@ -565,10 +565,10 @@ footer .menu-footer li a:hover {
     z-index: 1;
 }
 
-/* Override main.css full-height settings */
-.rokko-video-intro.full-height,
-section.intro.rokko-video-intro {
-    height: auto !important;
+/* Override main.css full-height settings with higher specificity */
+body section.intro.full-height.rokko-video-intro,
+section.intro.rokko-video-intro.full-height {
+    height: auto;
 }
 
 .rokko-video-container {
