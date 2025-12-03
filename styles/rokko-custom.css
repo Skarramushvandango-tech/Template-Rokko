@@ -8,7 +8,7 @@
  * Änderungen an dieser Datei sollten NUR nach Rücksprache erfolgen.
  * 
  * BASIS-KONFIGURATION (NICHT ÄNDERN):
- * - Primärfarbe: #E6D9C2 (Sandfarben)
+ * - Primärfarbe: #E6D9C2 (Sandfarben hell) / #DEC292 (Sandfarben dunkel)
  * - Farbschema: palettecaqui
  * - Schriftarten: Impact/Arial Black (Headlines - EXTREM FETT), Roboto (Text), Cousine (Mono)
  * - Header-Höhe: 100px
@@ -551,7 +551,7 @@ footer .menu-footer li a:hover {
    ROKKO! VIDEO INTRO - Self-Hosted HTML5 Video
    Kein YouTube = Keine Werbung!
    EIN Video (16:9) für alle Geräte - skaliert automatisch
-   Responsive: placed directly below header, no overlap
+   Responsive: direkt unter dem Header platziert, keine Überlappung
    ============================================ */
 section.intro.rokko-video-intro,
 .rokko-video-intro.full-width.full-height {
