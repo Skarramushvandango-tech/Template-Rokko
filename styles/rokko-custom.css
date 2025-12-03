@@ -557,17 +557,17 @@ footer .menu-footer li a:hover {
    UTILITY CLASSES
    ============================================ */
 .text-rokko {
-    color: #DEC292 !important;
+    color: var(--color-sand-dark) !important;
 }
 
 .bg-rokko {
-    background-color: #DEC292 !important;
+    background-color: var(--color-sand-dark) !important;
 }
 
 .btn-rokko {
-    background-color: #DEC292 !important;
-    color: #5D4037 !important; /* Dunkelbraun */
-    border-color: #DEC292 !important;
+    background-color: var(--color-sand-dark) !important;
+    color: var(--color-brown-dark) !important;
+    border-color: var(--color-sand-dark) !important;
 }
 
 .btn-rokko:hover {
