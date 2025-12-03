@@ -57,6 +57,19 @@ body .title-wrapper h2.title {
    ============================================ */
 #jHeader {
     min-height: auto !important;
+    position: relative !important; /* Ensure header is in document flow */
+}
+
+/* Override the overflow-video class on mobile to ensure header is not fixed */
+#jHeader.overflow-video {
+    position: relative !important;
+}
+
+/* On desktop, allow fixed positioning when scrolled */
+@media (min-width: 992px) {
+    #jHeader.overflow-video.fixed {
+        position: fixed !important;
+    }
 }
 
 #jHeader .navbar {
@@ -203,7 +216,8 @@ body {
 .discography,
 .latest-album,
 .blog.list-posts,
-.list-posts:not(.inverse-color) {
+.list-posts:not(.inverse-color),
+.welcome-section {
     background-color: #DEC292 !important; /* Sandfarben */
 }
 
@@ -240,7 +254,9 @@ footer {
 .featured-artist .name,
 .post-item p,
 .post-item h3,
-.post-item h4 {
+.post-item h4,
+.welcome-section p,
+.welcome-section h1, .welcome-section h2, .welcome-section h3, .welcome-section h4 {
     color: #5D4037 !important; /* Dunkelbraun */
 }
 
@@ -607,6 +623,16 @@ section.stay-in-touch {
 }
 
 /* ============================================
+   CSS VARIABLES - ROKKO! Records Color Palette
+   ============================================ */
+:root {
+    --color-sand: #E6D9C2;
+    --color-sand-dark: #DEC292;
+    --color-brown-dark: #5D4037;
+    --color-caqui: #bdb76b;
+}
+
+/* ============================================
    RESPONSIVE ADJUSTMENTS
    ============================================ */
 @media (max-width: 991px) {
@@ -637,5 +663,194 @@ section.stay-in-touch {
         width: 45px;
         height: 45px;
         font-size: 18px;
+    }
+    
+    /* ============================================
+       HEADER - Mobile: 50% height reduction
+       ============================================ */
+    #jHeader {
+        min-height: auto !important;
+    }
+    
+    #jHeader .navbar {
+        min-height: auto !important;
+        padding: 10px 0 !important; /* Reduced from 20px */
+    }
+    
+    /* Header.png - edge-to-edge on mobile with small padding */
+    .rokko-logo-centered {
+        padding: 10px 0 8px 0 !important; /* Reduced padding */
+    }
+    
+    .rokko-logo-centered img {
+        max-height: 160px !important; /* 50% of 320px */
+        max-width: 100% !important;
+        width: calc(100% - 16px) !important; /* Edge-to-edge with small side padding */
+        object-fit: contain !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+    
+    /* ============================================
+       INTRO VIDEO - Mobile: responsive, no overlap
+       ============================================ */
+    .rokko-video-intro {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        overflow: hidden !important;
+    }
+    
+    .rokko-video-container {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        padding-top: 56.25% !important; /* 16:9 aspect ratio */
+    }
+    
+    .rokko-intro-video {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        transform: none !important;
+        object-fit: cover !important;
+    }
+    
+    /* ============================================
+       NAVIGATION - Mobile: horizontal, no burger menu
+       ============================================ */
+    /* Hide the burger menu toggle button */
+    #jHeader .navbar-toggle {
+        display: none !important;
+    }
+    
+    /* Ensure navigation collapse is always visible */
+    #jHeader .navbar-collapse {
+        display: block !important;
+        height: auto !important;
+        padding-bottom: 0 !important;
+        overflow: visible !important;
+        border-top: none !important;
+        background-color: transparent !important;
+    }
+    
+    #jHeader .navbar-collapse.collapse {
+        display: block !important;
+    }
+    
+    /* Navigation links - horizontal with wrapping, sand color */
+    .rokko-nav-centered {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .rokko-nav-centered > li {
+        display: inline-block !important;
+        float: none !important;
+        text-align: center !important;
+    }
+    
+    #jHeader .rokko-nav-centered > li > a {
+        padding: 8px 10px !important;
+        font-size: 11px !important;
+        color: var(--color-sand) !important;
+    }
+    
+    #jHeader .rokko-nav-centered > li > a:hover,
+    #jHeader .rokko-nav-centered > li.active > a {
+        color: var(--color-caqui) !important;
+    }
+}
+
+/* ============================================
+   GLOBAL WHITE COLOR REPLACEMENT - Use Sand Color
+   Replace #ffffff with sand color (#E6D9C2)
+   ============================================ */
+/* Navigation links on dark header - use sand instead of white */
+#jHeader .navbar-nav > li > a,
+.navbar-default .navbar-nav > li > a {
+    color: var(--color-sand) !important;
+}
+
+#jHeader .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:focus {
+    color: var(--color-sand) !important;
+}
+
+#jHeader .navbar-nav > li.active > a,
+#jHeader .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li.active > a,
+.navbar-default .navbar-nav > li > a:hover {
+    color: var(--color-caqui) !important;
+}
+
+/* Fix any remaining white text in inverse sections */
+.inverse-color p,
+.inverse-color span,
+.inverse-color h1,
+.inverse-color h2,
+.inverse-color h3,
+.inverse-color h4,
+.inverse-color h5,
+.inverse-color h6 {
+    color: var(--color-sand) !important;
+}
+
+/* Replace white in contact section */
+.contact p.cousine,
+.contact .text-center.cousine {
+    color: var(--color-sand) !important;
+}
+
+/* Playlist links use sand color */
+.player.horizontal .playlist a {
+    color: var(--color-sand) !important;
+}
+
+/* Player info use sand color */
+.player.horizontal .info-album-player .album-title {
+    color: var(--color-sand) !important;
+}
+
+.player.horizontal .info-album-player .artist-name {
+    color: var(--color-sand-dark) !important;
+}
+
+/* ============================================
+   DISCOGRAPHY/SONGS/COVERS - Responsive Grid
+   ============================================ */
+.discography .row,
+.carousel-discography .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.discography .item-disc,
+.carousel-discography .item-disc {
+    margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+    .discography .item-disc,
+    .carousel-discography .item-disc {
+        margin-bottom: 40px;
+    }
+    
+    .info-album .cover {
+        max-width: 100% !important;
+    }
+    
+    .info-album p.album,
+    .info-album p.artist {
+        font-size: 16px !important;
     }
 }
