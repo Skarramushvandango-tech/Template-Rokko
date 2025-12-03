@@ -607,6 +607,15 @@ section.stay-in-touch {
 }
 
 /* ============================================
+   CSS VARIABLE FOR SAND COLOR
+   ============================================ */
+:root {
+    --color-sand: #E6D9C2;
+    --color-sand-light: #E6D9C2;
+    --color-brown-dark: #5D4037;
+}
+
+/* ============================================
    RESPONSIVE ADJUSTMENTS
    ============================================ */
 @media (max-width: 991px) {
@@ -615,20 +624,95 @@ section.stay-in-touch {
     }
 }
 
+/* ============================================
+   MOBILE SPECIFIC STYLES (max-width: 767px)
+   ============================================ */
 @media (max-width: 767px) {
-    .rokko-contact-form .form-control {
-        padding: 12px;
+    /* 1) HEADER - Reduce dark brown header height by 50% on mobile */
+    #jHeader,
+    header#jHeader,
+    header.overflow-video.rokko-header-centered {
+        min-height: auto !important;
     }
     
-    .contact .social a {
-        margin: 0 10px;
+    #jHeader .navbar {
+        padding: 10px 0 !important; /* Reduced from 20px to 10px */
     }
     
-    /* Video bleibt 16:9, skaliert einfach kleiner */
-    .rokko-video-intro {
-        height: 56.25vw; /* 16:9 Verhältnis basierend auf Breite */
-        min-height: 300px;
-        max-height: 100vh;
+    /* Reduce padding on logo container for mobile */
+    .rokko-logo-centered {
+        padding: 10px 0 8px 0 !important; /* Reduced from 20px 0 15px 0 */
+    }
+    
+    /* 1) HEADER PNG - Nearly full viewport width on mobile with small side padding */
+    .rokko-logo-centered img {
+        max-height: 160px !important; /* Reduced for mobile */
+        max-width: calc(100% - 16px) !important;
+        width: calc(100% - 16px) !important;
+        object-fit: contain;
+    }
+    
+    /* 3) NAVIGATION - Display horizontal links under header PNG, no burger menu */
+    #jHeader .navbar-toggle {
+        display: none !important; /* Hide burger menu toggle */
+    }
+    
+    #jHeader .navbar-collapse,
+    #jHeader .navbar-collapse.collapse {
+        display: block !important;
+        visibility: visible !important;
+        height: auto !important;
+        overflow: visible !important;
+        background-color: transparent !important;
+    }
+    
+    .rokko-nav-centered {
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .rokko-nav-centered > li {
+        display: inline-block !important;
+    }
+    
+    #jHeader .rokko-nav-centered > li > a {
+        padding: 8px 10px;
+        font-size: 11px;
+        color: var(--color-sand-light) !important;
+        color: #E6D9C2 !important; /* Sand-light color, not white */
+    }
+    
+    /* 2) INTRO VIDEO - Responsive, below header, no overlap */
+    .rokko-video-intro,
+    section.rokko-video-intro {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+        margin-top: 0 !important; /* No negative margin */
+        overflow: hidden;
+    }
+    
+    .rokko-video-container {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        padding-top: 56.25%; /* 16:9 aspect ratio */
+    }
+    
+    .rokko-intro-video {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-width: auto !important;
+        min-height: auto !important;
+        transform: none !important;
+        object-fit: cover;
     }
     
     .rokko-sound-toggle {
@@ -638,4 +722,164 @@ section.stay-in-touch {
         height: 45px;
         font-size: 18px;
     }
+    
+    .rokko-contact-form .form-control {
+        padding: 12px;
+    }
+    
+    .contact .social a {
+        margin: 0 10px;
+    }
+}
+
+/* ============================================
+   4) WELCOME TEXT - Below intro video, near top
+   ============================================ */
+.rokko-welcome-text {
+    text-align: center;
+    padding: 40px 15px;
+    background-color: var(--color-sand);
+    background-color: #E6D9C2;
+}
+
+.rokko-welcome-text h2,
+.rokko-welcome-text p {
+    color: var(--color-brown-dark);
+    color: #5D4037;
+}
+
+/* ============================================
+   GLOBAL WHITE COLOR REPLACEMENT
+   Replace #ffffff with sand color #E6D9C2
+   ============================================ */
+
+/* Navigation links on dark background - use sand-light instead of white */
+.navbar-default .navbar-nav > li > a,
+#jHeader .navbar-nav > li > a,
+.rokko-nav-centered > li > a {
+    color: #E6D9C2 !important; /* Sand-light instead of white */
+}
+
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+    color: #c9b89a !important; /* Slightly darker sand on hover */
+}
+
+/* Contact section text - sand instead of white */
+.contact p,
+.contact .cousine,
+section.contact p[style*="color: #fff"] {
+    color: #E6D9C2 !important;
+}
+
+/* Footer text should use dark colors on sand background */
+footer,
+footer .copy,
+footer .menu-footer li a {
+    color: #5D4037 !important;
+}
+
+/* Player text on dark backgrounds */
+.player.horizontal .playlist a,
+.player.horizontal .info-album-player .album-title {
+    color: #E6D9C2 !important;
+}
+
+/* ============================================
+   6) SONGS AND COVERS LAYOUT - Responsive Grid/Flex
+   ============================================ */
+
+/* Discography section responsive layout */
+.discography .carousel-discography {
+    width: 100%;
+}
+
+.discography .item-disc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.discography .info-album {
+    width: 100%;
+    max-width: 556px;
+    margin: 0 auto;
+}
+
+/* Album text styling */
+.discography .info-album p.album,
+.discography .info-album p.artist {
+    color: #5D4037 !important;
+    text-align: center;
+}
+
+/* Mobile responsive for songs/covers */
+@media (max-width: 767px) {
+    .discography .carousel-discography .gallery-cell {
+        padding: 10px;
+    }
+    
+    .discography .item-disc {
+        margin-bottom: 25px;
+    }
+    
+    .discography .info-album .cover {
+        max-width: 100% !important;
+    }
+    
+    /* Ensure grid items stack properly on mobile */
+    .discography .row .col-md-6 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* ============================================
+   ADDITIONAL WHITE COLOR REPLACEMENTS
+   ============================================ */
+
+/* Inverse color sections - use sand instead of white */
+.inverse-color p,
+.inverse-color h1,
+.inverse-color h2,
+.inverse-color h3,
+.inverse-color h4,
+.inverse-color label {
+    color: #E6D9C2 !important;
+}
+
+/* Stay in touch section */
+.stay-in-touch .titulo,
+.stay-in-touch .subtitulo,
+.stay-in-touch label,
+.stay-in-touch p {
+    color: #E6D9C2 !important;
+}
+
+/* Form controls on dark backgrounds */
+.inverse-color input,
+.inverse-color textarea,
+.stay-in-touch input {
+    color: #E6D9C2 !important;
+    border-color: #E6D9C2 !important;
+}
+
+.inverse-color input::placeholder,
+.stay-in-touch input::placeholder {
+    color: rgba(230, 217, 194, 0.7) !important;
+}
+
+/* Buttons on inverse sections */
+.inverse-color .btn.square,
+.stay-in-touch .btn.square {
+    color: #5D4037 !important;
+    background-color: #E6D9C2 !important;
+    border-color: #E6D9C2 !important;
+}
+
+/* Title underlines - use sand on dark backgrounds */
+.inverse-color h2.title:after,
+h2.title.inverse:after {
+    background: #E6D9C2 !important;
 }
