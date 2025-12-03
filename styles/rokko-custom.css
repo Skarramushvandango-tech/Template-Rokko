@@ -611,7 +611,6 @@ section.stay-in-touch {
    ============================================ */
 :root {
     --color-sand: #E6D9C2;
-    --color-sand-light: #E6D9C2;
     --color-brown-dark: #5D4037;
 }
 
@@ -680,8 +679,7 @@ section.stay-in-touch {
     #jHeader .rokko-nav-centered > li > a {
         padding: 8px 10px;
         font-size: 11px;
-        color: var(--color-sand-light) !important;
-        color: #E6D9C2 !important; /* Sand-light color, not white */
+        color: var(--color-sand) !important; /* Sand color, not white */
     }
     
     /* 2) INTRO VIDEO - Responsive, below header, no overlap */
@@ -739,13 +737,11 @@ section.stay-in-touch {
     text-align: center;
     padding: 40px 15px;
     background-color: var(--color-sand);
-    background-color: #E6D9C2;
 }
 
 .rokko-welcome-text h2,
 .rokko-welcome-text p {
     color: var(--color-brown-dark);
-    color: #5D4037;
 }
 
 /* ============================================
@@ -753,11 +749,11 @@ section.stay-in-touch {
    Replace #ffffff with sand color #E6D9C2
    ============================================ */
 
-/* Navigation links on dark background - use sand-light instead of white */
+/* Navigation links on dark background - use sand instead of white */
 .navbar-default .navbar-nav > li > a,
 #jHeader .navbar-nav > li > a,
 .rokko-nav-centered > li > a {
-    color: #E6D9C2 !important; /* Sand-light instead of white */
+    color: var(--color-sand) !important;
 }
 
 .navbar-default .navbar-nav > li > a:focus,
@@ -769,20 +765,20 @@ section.stay-in-touch {
 .contact p,
 .contact .cousine,
 section.contact p[style*="color: #fff"] {
-    color: #E6D9C2 !important;
+    color: var(--color-sand) !important;
 }
 
 /* Footer text should use dark colors on sand background */
 footer,
 footer .copy,
 footer .menu-footer li a {
-    color: #5D4037 !important;
+    color: var(--color-brown-dark) !important;
 }
 
 /* Player text on dark backgrounds */
 .player.horizontal .playlist a,
 .player.horizontal .info-album-player .album-title {
-    color: #E6D9C2 !important;
+    color: var(--color-sand) !important;
 }
 
 /* ============================================
@@ -810,7 +806,7 @@ footer .menu-footer li a {
 /* Album text styling */
 .discography .info-album p.album,
 .discography .info-album p.artist {
-    color: #5D4037 !important;
+    color: var(--color-brown-dark) !important;
     text-align: center;
 }
 
@@ -846,7 +842,7 @@ footer .menu-footer li a {
 .inverse-color h3,
 .inverse-color h4,
 .inverse-color label {
-    color: #E6D9C2 !important;
+    color: var(--color-sand) !important;
 }
 
 /* Stay in touch section */
@@ -854,15 +850,15 @@ footer .menu-footer li a {
 .stay-in-touch .subtitulo,
 .stay-in-touch label,
 .stay-in-touch p {
-    color: #E6D9C2 !important;
+    color: var(--color-sand) !important;
 }
 
 /* Form controls on dark backgrounds */
 .inverse-color input,
 .inverse-color textarea,
 .stay-in-touch input {
-    color: #E6D9C2 !important;
-    border-color: #E6D9C2 !important;
+    color: var(--color-sand) !important;
+    border-color: var(--color-sand) !important;
 }
 
 .inverse-color input::placeholder,
@@ -873,13 +869,13 @@ footer .menu-footer li a {
 /* Buttons on inverse sections */
 .inverse-color .btn.square,
 .stay-in-touch .btn.square {
-    color: #5D4037 !important;
-    background-color: #E6D9C2 !important;
-    border-color: #E6D9C2 !important;
+    color: var(--color-brown-dark) !important;
+    background-color: var(--color-sand) !important;
+    border-color: var(--color-sand) !important;
 }
 
 /* Title underlines - use sand on dark backgrounds */
 .inverse-color h2.title:after,
 h2.title.inverse:after {
-    background: #E6D9C2 !important;
+    background: var(--color-sand) !important;
 }
