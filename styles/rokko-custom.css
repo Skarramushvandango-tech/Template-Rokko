@@ -178,16 +178,19 @@ body .title-wrapper h2.title {
     }
     
     .rokko-nav-centered {
-        display: block;
+        display: flex !important;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     .rokko-nav-centered > li {
-        display: block;
+        display: inline-block;
         text-align: center;
     }
     
     #jHeader .rokko-nav-centered > li > a {
-        padding: 12px 15px;
+        padding: 8px 10px;
+        font-size: 11px;
     }
     
     #jHeader .navbar-toggle {
