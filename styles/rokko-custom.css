@@ -54,10 +54,13 @@ body .title-wrapper h2.title {
 
 /* ============================================
    HEADER - Zentriertes Logo und Navigation
+   Fluid responsive: height scales with viewport
    ============================================ */
 #jHeader {
     min-height: auto !important;
     position: relative !important; /* Ensure header is in document flow */
+    /* Fluid header height: scales from 50% on mobile to full on desktop */
+    padding: clamp(10px, 2vw, 20px) 0;
 }
 
 /* Override the overflow-video class on mobile to ensure header is not fixed */
@@ -74,36 +77,59 @@ body .title-wrapper h2.title {
 
 #jHeader .navbar {
     min-height: auto !important;
-    padding: 20px 0;
+    padding: clamp(10px, 2vw, 20px) 0;
 }
 
 /* Zentriertes Logo oben - GROSS */
 .rokko-logo-centered {
     text-align: center;
-    padding: 20px 0 15px 0;
+    padding: clamp(10px, 2vw, 20px) clamp(8px, 2vw, 15px);
 }
 
 .rokko-logo-centered a {
     display: inline-block;
 }
 
+/* Header image: nearly full width on small screens, contained on large */
 .rokko-logo-centered img {
-    max-height: 320px;
-    width: auto;
-    max-width: 90%;
+    max-height: clamp(160px, 30vw, 320px);
+    width: calc(100% - 16px);
+    max-width: 800px;
     display: block;
     margin: 0 auto;
+    object-fit: contain;
 }
 
-/* Zentrierte Navigation unter dem Logo */
+/* Hide the burger menu button - navigation always visible */
+#jHeader .navbar-toggle,
+#jHeader .navbar-header .navbar-toggle {
+    display: none !important;
+}
+
+/* Navigation wrapper - always visible, not collapsible */
+#jHeader .collapse.navbar-collapse,
+#jHeader .navbar-collapse,
+#jHeader .navbar-nav-wrapper,
+.navbar-nav-wrapper {
+    display: flex !important;
+    justify-content: center;
+    height: auto !important;
+    overflow: visible !important;
+    visibility: visible !important;
+    padding: 0;
+    border: none;
+}
+
+/* Zentrierte Navigation unter dem Logo - horizontal for all viewports */
 .rokko-nav-centered {
     float: none !important;
     text-align: center;
-    display: flex;
+    display: flex !important;
     justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
     padding: 0;
+    list-style: none;
 }
 
 .rokko-nav-centered > li {
@@ -111,13 +137,41 @@ body .title-wrapper h2.title {
     display: inline-block;
 }
 
+/* Navigation links use sand color */
 #jHeader .rokko-nav-centered > li > a {
-    padding: 10px 15px;
-    font-size: 13px;
+    padding: clamp(8px, 1.5vw, 10px) clamp(8px, 2vw, 15px);
+    font-size: clamp(11px, 1.5vw, 13px);
     font-weight: 700 !important;
+    color: var(--color-sand) !important;
 }
 
-/* Mobile Ansicht */
+#jHeader .rokko-nav-centered > li > a:hover,
+#jHeader .rokko-nav-centered > li > a:focus {
+    color: var(--color-sand) !important;
+    opacity: 0.8;
+}
+
+/* Fluid responsive header height reduction on smaller screens */
+@media (max-width: 768px) {
+    #jHeader {
+        /* Reduce header background height by ~50% on small screens */
+        padding: 5px 0;
+    }
+    
+    #jHeader .navbar {
+        padding: 5px 0;
+    }
+    
+    .rokko-logo-centered {
+        padding: 8px;
+    }
+    
+    .rokko-logo-centered img {
+        width: 100%;
+        max-width: calc(100% - 16px);
+        max-height: 160px;
+    }
+}
 @media (max-width: 991px) {
     .rokko-logo-centered img {
         max-height: 200px;
@@ -503,17 +557,17 @@ footer .menu-footer li a:hover {
    UTILITY CLASSES
    ============================================ */
 .text-rokko {
-    color: #DEC292 !important;
+    color: var(--color-sand-dark) !important;
 }
 
 .bg-rokko {
-    background-color: #DEC292 !important;
+    background-color: var(--color-sand-dark) !important;
 }
 
 .btn-rokko {
-    background-color: #DEC292 !important;
-    color: #5D4037 !important; /* Dunkelbraun */
-    border-color: #DEC292 !important;
+    background-color: var(--color-sand-dark) !important;
+    color: var(--color-brown-dark) !important;
+    border-color: var(--color-sand-dark) !important;
 }
 
 .btn-rokko:hover {
@@ -525,32 +579,42 @@ footer .menu-footer li a:hover {
    ROKKO! VIDEO INTRO - Self-Hosted HTML5 Video
    Kein YouTube = Keine Werbung!
    EIN Video (16:9) für alle Geräte - skaliert automatisch
+   Responsive: direkt unter dem Header platziert, keine Überlappung
    ============================================ */
-.rokko-video-intro {
+section.intro.rokko-video-intro,
+.rokko-video-intro.full-width.full-height {
     position: relative;
     width: 100%;
-    height: 100vh;
+    /* Fluid height that scales with viewport */
+    height: auto;
+    min-height: 200px;
     overflow: hidden;
     background: #000;
+    /* Remove any negative margins or absolute positioning that causes overlap */
+    margin-top: 0;
+    z-index: 1;
+}
+
+/* Override main.css full-height settings with higher specificity */
+body section.intro.full-height.rokko-video-intro,
+section.intro.rokko-video-intro.full-height {
+    height: auto;
 }
 
 .rokko-video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.rokko-intro-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-.rokko-intro-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
     object-fit: cover;
 }
 
@@ -562,9 +626,9 @@ footer .menu-footer li a:hover {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: rgba(222, 194, 146, 0.9); /* Sandfarben */
+    background: rgba(230, 217, 194, 0.9); /* Sand color */
     border: none;
-    color: #5D4037; /* Dunkelbraun */
+    color: var(--color-brown-dark);
     font-size: 20px;
     cursor: pointer;
     z-index: 100;
@@ -575,7 +639,7 @@ footer .menu-footer li a:hover {
 }
 
 .rokko-sound-toggle:hover {
-    background: #DEC292;
+    background: var(--color-sand);
     transform: scale(1.1);
 }
 
@@ -633,6 +697,27 @@ section.stay-in-touch {
 }
 
 /* ============================================
+   WELCOME TEXT SECTION - Placed near top after video
+   ============================================ */
+.rokko-welcome-section {
+    background-color: var(--color-sand);
+    padding: clamp(30px, 5vw, 60px) 0;
+    text-align: center;
+}
+
+.rokko-welcome-section h2 {
+    color: var(--color-brown-dark);
+    margin-bottom: 20px;
+}
+
+.rokko-welcome-section p {
+    color: var(--color-brown-dark);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============================================
    RESPONSIVE ADJUSTMENTS
    ============================================ */
 @media (max-width: 991px) {
@@ -667,6 +752,7 @@ section.stay-in-touch {
     
     /* ============================================
        HEADER - Mobile: 50% height reduction
+       (Additional mobile-specific overrides)
        ============================================ */
     #jHeader {
         min-height: auto !important;
@@ -674,18 +760,18 @@ section.stay-in-touch {
     
     #jHeader .navbar {
         min-height: auto !important;
-        padding: 10px 0 !important; /* Reduced from 20px */
+        padding: 10px 0 !important;
     }
     
     /* Header.png - edge-to-edge on mobile with small padding */
     .rokko-logo-centered {
-        padding: 10px 0 8px 0 !important; /* Reduced padding */
+        padding: 10px 0 8px 0 !important;
     }
     
     .rokko-logo-centered img {
-        max-height: 160px !important; /* 50% of 320px */
+        max-height: 160px !important;
         max-width: 100% !important;
-        width: calc(100% - 16px) !important; /* Edge-to-edge with small side padding */
+        width: calc(100% - 16px) !important;
         object-fit: contain !important;
         display: block !important;
         margin: 0 auto !important;
@@ -694,6 +780,7 @@ section.stay-in-touch {
     /* ============================================
        INTRO VIDEO - Mobile: responsive, no overlap
        ============================================ */
+    section.intro.rokko-video-intro,
     .rokko-video-intro {
         position: relative !important;
         width: 100% !important;
@@ -706,8 +793,8 @@ section.stay-in-touch {
     .rokko-video-container {
         position: relative !important;
         width: 100% !important;
-        height: auto !important;
-        padding-top: 56.25% !important; /* 16:9 aspect ratio */
+        height: 0 !important;
+        padding-bottom: 56.25% !important; /* 16:9 aspect ratio */
     }
     
     .rokko-intro-video {
@@ -853,4 +940,54 @@ section.stay-in-touch {
     .info-album p.artist {
         font-size: 16px !important;
     }
+}
+
+/* ============================================
+   SONGS/COVERS RESPONSIVE GRID LAYOUT (from PR#13)
+   ============================================ */
+.discography .row,
+.carousel-discography .gallery-cell .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.discography .item-disc,
+.carousel-discography .item-disc {
+    flex: 1 1 clamp(280px, 45%, 556px);
+    max-width: 556px;
+    margin-bottom: 30px;
+    padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+    .discography .item-disc,
+    .carousel-discography .item-disc {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+/* Album info styling */
+.info-album {
+    text-align: center;
+}
+
+.info-album .album,
+.info-album .artist {
+    color: var(--color-brown-dark);
+}
+
+/* Player section responsive */
+.player.horizontal {
+    background-color: var(--color-brown-dark);
+}
+
+.player.horizontal .info-album-player .album-title,
+.player.horizontal .info-album-player .artist-name {
+    color: var(--color-sand);
+}
+
+.player.horizontal .playlist li a {
+    color: var(--color-sand);
 }
