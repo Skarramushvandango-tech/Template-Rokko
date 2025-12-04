@@ -59,7 +59,7 @@ body .title-wrapper h2.title {
 #jHeader {
     min-height: auto !important;
     position: relative !important;
-    padding: 5px 0;
+    padding: 0;
 }
 
 /* Override the overflow-video class on mobile to ensure header is not fixed */
@@ -76,14 +76,14 @@ body .title-wrapper h2.title {
 
 #jHeader .navbar {
     min-height: auto !important;
-    padding: 5px 0;
+    padding: 0;
     margin-bottom: 0;
 }
 
 /* Zentriertes Logo oben - kompakt */
 .rokko-logo-centered {
     text-align: center;
-    padding: 5px 10px;
+    padding: 5px 10px 0 10px;
 }
 
 .rokko-logo-centered a {
@@ -92,9 +92,9 @@ body .title-wrapper h2.title {
 
 /* Header image: kompakt */
 .rokko-logo-centered img {
-    max-height: 120px;
+    max-height: 100px;
     width: auto;
-    max-width: 600px;
+    max-width: 500px;
     display: block;
     margin: 0 auto;
     object-fit: contain;
