@@ -1,6 +1,6 @@
-# YouTube API Setup für ROKKO! Videos
+# YouTube API Setup für ROKKO! Clips
 
-Diese Anleitung erklärt, wie die automatische YouTube Playlist Integration für die "ROKKO! Videos" Sektion eingerichtet wird.
+Diese Anleitung erklärt, wie die automatische YouTube Playlist Integration für die "ROKKO! Clips" Sektion eingerichtet wird.
 
 ## Schritt 1: YouTube Data API Key erstellen
 
@@ -44,15 +44,21 @@ const PLAYLIST_ID = 'PLxxxxxxxxxxxxxxxxxxxxxx';
 
 1. Speichere die Datei
 2. Öffne die Website im Browser
-3. Scrolle zur "ROKKO! Videos" Sektion
+3. Scrolle zur "ROKKO! Clips" Sektion oder klicke auf "ROKKO! Clips" im Menü
 4. Die Videos sollten automatisch geladen werden
+5. Klicke auf ein Video-Thumbnail, um es im Fullscreen Pop-up Player abzuspielen
 
 ## Funktionsweise
 
 - Die Videos werden **automatisch** von der YouTube Playlist geladen
 - **Neue Videos** erscheinen automatisch auf der Website, sobald sie zur Playlist hinzugefügt werden
 - Die Videos werden im **Portrait-Format (9:16)** angezeigt - ideal für YouTube Shorts
-- Beim Klick auf ein Video wird YouTube in einem neuen Tab geöffnet
+- **Klick auf Video**: Öffnet einen schönen Fullscreen Pop-up Player
+  - YouTube Video spielt im Pop-up mit Autoplay
+  - X-Button zum Schließen (oben rechts)
+  - ESC-Taste schließt ebenfalls
+  - Klick außerhalb des Videos schließt den Player
+  - Video stoppt automatisch beim Schließen
 
 ## Wichtige Hinweise
 

@@ -48,7 +48,7 @@
 
 **Resultat:** ✅ Alle Seiten zeigen jetzt die korrekte ROKKO Sand-Farbe (#DEC292)
 
-### 6. ✅ **NEU: ROKKO! Videos Sektion (Hauptseite)**
+### 6. ✅ **NEU: ROKKO! Clips Sektion (Hauptseite)**
 Eine komplett neue Sektion auf der Hauptseite (index.html):
 
 **Features:**
@@ -56,8 +56,13 @@ Eine komplett neue Sektion auf der Hauptseite (index.html):
 - Portrait-Format (Hochkant 9:16) - perfekt für Shorts
 - Miniatur-Vorschau der Videos untereinander
 - **Automatische Updates:** Neue Videos erscheinen automatisch auf der Website
-- Klickbar: Öffnet das Video auf YouTube
-- Navigation: Neuer "Videos" Link im Menü
+- **Fullscreen Pop-up Player:**
+  - Klick auf Video → öffnet schönen Vollbild-Player
+  - YouTube Video spielt mit Autoplay
+  - X-Button zum Schließen (ROKKO Sand-Farbe)
+  - ESC-Taste und Klick außerhalb schließt ebenfalls
+  - Hover-Effekt: Play-Button erscheint
+- Navigation: "ROKKO! Clips" Link im Menü
 
 **Setup benötigt:**
 1. YouTube Data API Key erstellen (siehe `YOUTUBE_API_SETUP.md`)
@@ -80,7 +85,7 @@ Eine komplett neue Sektion auf der Hauptseite (index.html):
 - [x] Videos-Section bei ALLEN Artists
 - [x] Neuer Artist "Anger Uschis" angelegt
 - [x] Schwarzer Hintergrund → ROKKO Sand korrigiert
-- [x] ROKKO! Videos Hauptsektion erstellt
+- [x] ROKKO! Clips Hauptsektion mit Pop-up Player erstellt
 - [x] Farbvorgaben befolgt (#5D4037 Braun, #DEC292 Sand)
 - [x] Keine Emojis verwendet
 - [x] Alle Buttons einheitlich gestaltet
