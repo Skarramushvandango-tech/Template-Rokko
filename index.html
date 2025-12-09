@@ -53,6 +53,86 @@
   
   <!-- ROKKO! Records Custom Styles -->
   <link rel="stylesheet" href="styles/rokko-custom.css">
+  
+  <!-- Responsive styles for ROKKO! Clips -->
+  <style>
+    /* Mobile-first: Start with mobile styles */
+    .youtube-shorts-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      padding: 0 15px;
+    }
+    
+    .youtube-short-item,
+    .youtube-short-placeholder {
+      /* Mobile: 2 videos per row (smaller phones) */
+      width: calc(50% - 10px);
+      max-width: 160px;
+      aspect-ratio: 9/16;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    /* Small phones (up to 360px): 2 per row, smaller */
+    @media (max-width: 360px) {
+      .youtube-short-item,
+      .youtube-short-placeholder {
+        width: calc(50% - 8px);
+        max-width: 140px;
+      }
+      .youtube-shorts-grid {
+        gap: 10px;
+      }
+    }
+    
+    /* Tablets and larger phones (481px and up): 3 per row */
+    @media (min-width: 481px) {
+      .youtube-short-item,
+      .youtube-short-placeholder {
+        width: calc(33.333% - 12px);
+        max-width: 160px;
+      }
+    }
+    
+    /* Tablets landscape and small desktops (768px and up): 4 per row */
+    @media (min-width: 768px) {
+      .youtube-short-item,
+      .youtube-short-placeholder {
+        width: calc(25% - 15px);
+        max-width: 180px;
+      }
+      .youtube-shorts-grid {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    
+    /* Desktop (1024px and up): 5-6 per row */
+    @media (min-width: 1024px) {
+      .youtube-short-item,
+      .youtube-short-placeholder {
+        width: 160px;
+        max-width: 160px;
+      }
+      .youtube-shorts-grid {
+        max-width: 1200px;
+      }
+    }
+    
+    /* Large desktop (1440px and up): More spacing */
+    @media (min-width: 1440px) {
+      .youtube-shorts-grid {
+        gap: 20px;
+      }
+    }
+  </style>
 
   <script src="scripts/vendor/modernizr.js"></script>
 </head>
@@ -325,7 +405,7 @@
       </div>
       <p class="text-center cousine" style="color: #DEC292; margin-bottom: 40px;">Unsere neuesten YouTube Shorts</p>
       
-      <div id="rokko-youtube-shorts" class="youtube-shorts-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+      <div id="rokko-youtube-shorts" class="youtube-shorts-grid">
         <!-- Videos werden hier automatisch geladen -->
         <div style="text-align: center; width: 100%; color: #DEC292;">
           <p>Videos werden geladen...</p>
@@ -391,7 +471,7 @@
     if (YOUTUBE_API_KEY === 'YOUR_YOUTUBE_API_KEY_HERE' || PLAYLIST_ID === 'YOUR_PLAYLIST_ID_HERE') {
       // Wenn API Key nicht gesetzt, zeige Platzhalter mit Pop-up Funktionalität
       document.getElementById('rokko-youtube-shorts').innerHTML = `
-        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
              onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 1')"
              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
@@ -403,7 +483,7 @@
             <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
           </div>
         </div>
-        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
              onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 2')"
              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
@@ -415,7 +495,7 @@
             <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
           </div>
         </div>
-        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
              onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 3')"
              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
@@ -427,7 +507,7 @@
             <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
           </div>
         </div>
-        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
              onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 4')"
              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
@@ -439,7 +519,7 @@
             <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
           </div>
         </div>
-        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
              onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 5')"
              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
@@ -451,7 +531,7 @@
             <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
           </div>
         </div>
-        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
              onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 6')"
              onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
              onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
@@ -481,7 +561,7 @@
           
           return `
             <div class="youtube-short-item" 
-                 style="position: relative; width: 160px; aspect-ratio: 9/16; overflow: hidden; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+                 style="position: relative; overflow: hidden;" 
                  onclick="openVideoPopup('${videoId}', '${title.replace(/'/g, "\\'")}')"
                  onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)'; this.querySelector('.play-button-overlay').style.opacity='1';" 
                  onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)'; this.querySelector('.play-button-overlay').style.opacity='0';">
