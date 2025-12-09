@@ -83,7 +83,7 @@ body .title-wrapper h2.title {
 /* Zentriertes Logo oben */
 .rokko-logo-centered {
     text-align: center;
-    padding: 15px 10px 10px 10px;
+    padding: 5px 10px 5px 10px;
 }
 
 .rokko-logo-centered a {
@@ -92,7 +92,7 @@ body .title-wrapper h2.title {
 
 /* Header image: größer auf Desktop */
 .rokko-logo-centered img {
-    max-height: 180px;
+    max-height: 120px;
     width: auto;
     max-width: 700px;
     display: block;
@@ -696,6 +696,98 @@ section.stay-in-touch {
     --color-sand-dark: #DEC292;
     --color-brown-dark: #5D4037;
     --color-caqui: #bdb76b;
+}
+
+/* ============================================
+   BUTTON OUTLINE REMOVAL - NO WHITE BORDERS!
+   ============================================ */
+.btn,
+.btn.square,
+.btn-invert,
+button,
+a.btn,
+input.btn,
+.streaming-buttons .btn,
+.social-links .btn {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn:focus,
+.btn:active,
+.btn:hover,
+button:focus,
+button:active,
+button:hover {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* ============================================
+   REDUCE VERTICAL SPACING - TIGHTER LAYOUT
+   ============================================ */
+.voffset70 {
+    margin-bottom: 30px !important;
+}
+
+.voffset80 {
+    margin-bottom: 35px !important;
+}
+
+.voffset90 {
+    margin-bottom: 40px !important;
+}
+
+.voffset100 {
+    margin-bottom: 45px !important;
+}
+
+.voffset110,
+.voffset120,
+.voffset130,
+.voffset140,
+.voffset150,
+.voffset160,
+.voffset170,
+.voffset180,
+.voffset190,
+.voffset200 {
+    margin-bottom: 50px !important;
+}
+
+/* Reduce section padding */
+.section {
+    padding: 40px 0 !important;
+}
+
+/* ============================================
+   STREAMING AND SOCIAL BUTTONS - ONE ROW LAYOUT
+   ============================================ */
+.streaming-buttons,
+.social-links {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    justify-content: flex-start !important;
+}
+
+.streaming-buttons .btn,
+.social-links .btn {
+    padding: 8px 12px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    flex-shrink: 1 !important;
+}
+
+/* Ensure buttons stay in one row on larger screens */
+@media (min-width: 768px) {
+    .streaming-buttons,
+    .social-links {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+    }
 }
 
 /* ============================================

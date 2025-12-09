@@ -194,7 +194,7 @@ table {
 }
 
 .btn {
-  border: 2px solid transparent;
+  border: none !important;
   border-radius: 0px;
 }
 
@@ -1935,7 +1935,7 @@ h2.title:after {
 .btn-invert {
   color: #ffffff;
   background-color: transparent;
-  border-color: #ffffff;
+  border: none !important;
 }
 
 .btn.square {
