@@ -325,9 +325,9 @@
       </div>
       <p class="text-center cousine" style="color: #DEC292; margin-bottom: 40px;">Unsere neuesten YouTube Shorts</p>
       
-      <div id="rokko-youtube-shorts" class="youtube-shorts-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-top: 30px;">
+      <div id="rokko-youtube-shorts" class="youtube-shorts-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; max-width: 1200px; margin-left: auto; margin-right: auto;">
         <!-- Videos werden hier automatisch geladen -->
-        <div style="text-align: center; grid-column: 1 / -1; color: #DEC292;">
+        <div style="text-align: center; width: 100%; color: #DEC292;">
           <p>Videos werden geladen...</p>
         </div>
       </div>
@@ -391,40 +391,76 @@
     if (YOUTUBE_API_KEY === 'YOUR_YOUTUBE_API_KEY_HERE' || PLAYLIST_ID === 'YOUR_PLAYLIST_ID_HERE') {
       // Wenn API Key nicht gesetzt, zeige Platzhalter mit Pop-up Funktionalität
       document.getElementById('rokko-youtube-shorts').innerHTML = `
-        <div style="position: relative; aspect-ratio: 9/16; background: #DEC292; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" 
+        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
              onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 1')"
-             onmouseover="this.style.transform='scale(1.05)'" 
-             onmouseout="this.style.transform='scale(1)'">
-          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px;">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 15px;">
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
               <path d="M8 5v14l11-7z"/>
             </svg>
-            <p style="color: #5D4037; margin-bottom: 10px; font-weight: bold;">Video 1</p>
-            <p style="color: #5D4037; font-size: 12px; text-align: center;">Beispiel YouTube Short</p>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 1</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
           </div>
         </div>
-        <div style="position: relative; aspect-ratio: 9/16; background: #DEC292; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" 
+        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
              onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 2')"
-             onmouseover="this.style.transform='scale(1.05)'" 
-             onmouseout="this.style.transform='scale(1)'">
-          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px;">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 15px;">
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
               <path d="M8 5v14l11-7z"/>
             </svg>
-            <p style="color: #5D4037; margin-bottom: 10px; font-weight: bold;">Video 2</p>
-            <p style="color: #5D4037; font-size: 12px; text-align: center;">Beispiel YouTube Short</p>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 2</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
           </div>
         </div>
-        <div style="position: relative; aspect-ratio: 9/16; background: #DEC292; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" 
+        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
              onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 3')"
-             onmouseover="this.style.transform='scale(1.05)'" 
-             onmouseout="this.style.transform='scale(1)'">
-          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px;">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 15px;">
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
               <path d="M8 5v14l11-7z"/>
             </svg>
-            <p style="color: #5D4037; margin-bottom: 10px; font-weight: bold;">Video 3</p>
-            <p style="color: #5D4037; font-size: 12px; text-align: center;">Beispiel YouTube Short</p>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 3</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
+          </div>
+        </div>
+        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 4')"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 4</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
+          </div>
+        </div>
+        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 5')"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 5</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
+          </div>
+        </div>
+        <div style="position: relative; width: 160px; aspect-ratio: 9/16; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 6')"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 6</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
           </div>
         </div>
       `;
@@ -445,18 +481,18 @@
           
           return `
             <div class="youtube-short-item" 
-                 style="position: relative; aspect-ratio: 9/16; overflow: hidden; border-radius: 10px; cursor: pointer; transition: transform 0.3s ease;" 
+                 style="position: relative; width: 160px; aspect-ratio: 9/16; overflow: hidden; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" 
                  onclick="openVideoPopup('${videoId}', '${title.replace(/'/g, "\\'")}')"
-                 onmouseover="this.style.transform='scale(1.05)'; this.querySelector('.play-button-overlay').style.opacity='1';" 
-                 onmouseout="this.style.transform='scale(1)'; this.querySelector('.play-button-overlay').style.opacity='0';">
+                 onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)'; this.querySelector('.play-button-overlay').style.opacity='1';" 
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)'; this.querySelector('.play-button-overlay').style.opacity='0';">
               <img src="${thumbnail}" alt="${title}" style="width: 100%; height: 100%; object-fit: cover;">
-              <div class="play-button-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(222, 194, 146, 0.9); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; pointer-events: none;">
-                <svg width="30" height="30" viewBox="0 0 24 24" fill="#5D4037">
+              <div class="play-button-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(222, 194, 146, 0.95); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#5D4037">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </div>
-              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(93, 64, 55, 0.9)); padding: 15px;">
-                <p style="color: #DEC292; margin: 0; font-size: 14px; font-weight: bold;">${title}</p>
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(93, 64, 55, 0.95)); padding: 10px 8px;">
+                <p style="color: #DEC292; margin: 0; font-size: 12px; font-weight: bold; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${title}</p>
               </div>
             </div>
           `;
