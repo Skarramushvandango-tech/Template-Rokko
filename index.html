@@ -53,6 +53,86 @@
   
   <!-- ROKKO! Records Custom Styles -->
   <link rel="stylesheet" href="styles/rokko-custom.css">
+  
+  <!-- Responsive styles for ROKKO! Clips -->
+  <style>
+    /* Mobile-first: Start with mobile styles */
+    .youtube-shorts-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+      padding: 0 15px;
+    }
+    
+    .youtube-short-item,
+    .youtube-short-placeholder {
+      /* Mobile: 2 videos per row (smaller phones) */
+      width: calc(50% - 10px);
+      max-width: 160px;
+      aspect-ratio: 9/16;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    /* Small phones (up to 360px): 2 per row, smaller */
+    @media (max-width: 360px) {
+      .youtube-short-item,
+      .youtube-short-placeholder {
+        width: calc(50% - 8px);
+        max-width: 140px;
+      }
+      .youtube-shorts-grid {
+        gap: 10px;
+      }
+    }
+    
+    /* Tablets and larger phones (481px and up): 3 per row */
+    @media (min-width: 481px) {
+      .youtube-short-item,
+      .youtube-short-placeholder {
+        width: calc(33.333% - 12px);
+        max-width: 160px;
+      }
+    }
+    
+    /* Tablets landscape and small desktops (768px and up): 4 per row */
+    @media (min-width: 768px) {
+      .youtube-short-item,
+      .youtube-short-placeholder {
+        width: calc(25% - 15px);
+        max-width: 180px;
+      }
+      .youtube-shorts-grid {
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    
+    /* Desktop (1024px and up): 5-6 per row */
+    @media (min-width: 1024px) {
+      .youtube-short-item,
+      .youtube-short-placeholder {
+        width: 160px;
+        max-width: 160px;
+      }
+      .youtube-shorts-grid {
+        max-width: 1200px;
+      }
+    }
+    
+    /* Large desktop (1440px and up): More spacing */
+    @media (min-width: 1440px) {
+      .youtube-shorts-grid {
+        gap: 20px;
+      }
+    }
+  </style>
 
   <script src="scripts/vendor/modernizr.js"></script>
 </head>
@@ -83,6 +163,7 @@
         <ul class="nav navbar-nav rokko-nav-centered">
           <li class="active"><a href="#anchor00">Home</a></li>
           <li><a href="#anchor01">Crew</a></li>
+          <li><a href="#anchor-clips">ROKKO! Clips</a></li>
           <li><a href="#anchor03">Beats</a></li>
           <li><a href="#anchor04">Merch</a></li>
           <li><a href="#anchor07">News</a></li>
@@ -287,9 +368,251 @@
           </div>
         </div>
       </div>
+      
+      <div class="voffset40"></div>
+      
+      <!-- Second Row -->
+      <div class="row">
+        <!-- Artist 5: Anger Uschis -->
+        <div class="col-xs-12 col-sm-6 col-md-3 col-md-offset-3">
+          <div class="featured-artist">
+            <div class="photo">
+              <!-- Platzhalter für Anger Uschis Bild (400x400px) -->
+              <img src="images/rokko/artists/placeholder.png" alt="Anger Uschis" style="background: #5D4037; min-height: 200px;">
+              <div class="rollover">
+                <div class="social">
+                  <a href="#"><i class="fa fa-spotify"></i></a>
+                  <a href="#"><i class="fa fa-apple"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+            <h4 class="name">Anger Uschis</h4>
+            <p class="genre">Coming Soon</p>
+            <a href="artist-anger-uschis.html" class="btn square inverse">Biografie</a>
+          </div>
+        </div>
+      </div>
       <div class="voffset80"></div>
     </div>
   </section>
+
+  <!-- ROKKO! CLIPS - YouTube Shorts Playlist mit Pop-up Player -->
+  <section class="section rokko-clips" id="anchor-clips" style="background: #5D4037; padding: 60px 0;">
+    <div class="container">
+      <div class="title-wrapper">
+        <h2 class="title" style="color: #DEC292;">ROKKO! Clips</h2>
+      </div>
+      <p class="text-center cousine" style="color: #DEC292; margin-bottom: 40px;">Unsere neuesten YouTube Shorts</p>
+      
+      <div id="rokko-youtube-shorts" class="youtube-shorts-grid">
+        <!-- Videos werden hier automatisch geladen -->
+        <div style="text-align: center; width: 100%; color: #DEC292;">
+          <p>Videos werden geladen...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Video Pop-up Modal -->
+  <div id="video-popup-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 9999; justify-content: center; align-items: center;">
+    <!-- Close Button (X) -->
+    <button id="close-video-popup" style="position: absolute; top: 20px; right: 20px; background: #DEC292; color: #5D4037; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; font-weight: bold; cursor: pointer; z-index: 10000; transition: all 0.3s ease;" onmouseover="this.style.background='#c9a87a'" onmouseout="this.style.background='#DEC292'">
+      ×
+    </button>
+    
+    <!-- Video Container -->
+    <div id="video-player-container" style="width: 90%; max-width: 800px; height: 80vh; max-height: 90vh; position: relative;">
+      <!-- YouTube iframe wird hier eingefügt -->
+    </div>
+  </div>
+
+  <script>
+  // YouTube API Integration für ROKKO! Clips
+  // HINWEIS: Für automatische Updates benötigt man einen YouTube Data API Key
+  // und die Playlist ID. Diese müssen hier eingefügt werden:
+  const YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY_HERE'; // Muss vom User bereitgestellt werden
+  const PLAYLIST_ID = 'YOUR_PLAYLIST_ID_HERE'; // Die YouTube Playlist ID
+  
+  // Funktion zum Öffnen des Video Pop-ups
+  function openVideoPopup(videoId, title) {
+    const modal = document.getElementById('video-popup-modal');
+    const container = document.getElementById('video-player-container');
+    
+    // YouTube iframe mit autoplay erstellen
+    container.innerHTML = `
+      <iframe 
+        width="100%" 
+        height="100%" 
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1" 
+        title="${title}"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        style="border-radius: 10px;">
+      </iframe>
+    `;
+    
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Verhindert Scrollen im Hintergrund
+  }
+  
+  // Funktion zum Schließen des Pop-ups
+  function closeVideoPopup() {
+    const modal = document.getElementById('video-popup-modal');
+    const container = document.getElementById('video-player-container');
+    
+    container.innerHTML = ''; // Video stoppen
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Scrollen wieder erlauben
+  }
+  
+  async function loadYouTubeShorts() {
+    if (YOUTUBE_API_KEY === 'YOUR_YOUTUBE_API_KEY_HERE' || PLAYLIST_ID === 'YOUR_PLAYLIST_ID_HERE') {
+      // Wenn API Key nicht gesetzt, zeige Platzhalter mit Pop-up Funktionalität
+      document.getElementById('rokko-youtube-shorts').innerHTML = `
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 1')"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 1</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
+          </div>
+        </div>
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 2')"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 2</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
+          </div>
+        </div>
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 3')"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 3</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
+          </div>
+        </div>
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 4')"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 4</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
+          </div>
+        </div>
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 5')"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 5</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
+          </div>
+        </div>
+        <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 6')"
+             onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)';" 
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)';">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 15px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 12px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 8px; font-weight: bold; font-size: 14px; text-align: center;">Video 6</p>
+            <p style="color: #5D4037; font-size: 11px; text-align: center; opacity: 0.8;">ROKKO! Short</p>
+          </div>
+        </div>
+      `;
+      return;
+    }
+    
+    try {
+      const response = await fetch(
+        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${PLAYLIST_ID}&key=${YOUTUBE_API_KEY}`
+      );
+      const data = await response.json();
+      
+      if (data.items && data.items.length > 0) {
+        const videosHTML = data.items.map(item => {
+          const videoId = item.snippet.resourceId.videoId;
+          const title = item.snippet.title;
+          const thumbnail = item.snippet.thumbnails.high.url; // Hochformat Thumbnail
+          
+          return `
+            <div class="youtube-short-item" 
+                 style="position: relative; overflow: hidden;" 
+                 onclick="openVideoPopup('${videoId}', '${title.replace(/'/g, "\\'")}')"
+                 onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)'; this.querySelector('.play-button-overlay').style.opacity='1';" 
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)'; this.querySelector('.play-button-overlay').style.opacity='0';">
+              <img src="${thumbnail}" alt="${title}" style="width: 100%; height: 100%; object-fit: cover;">
+              <div class="play-button-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(222, 194, 146, 0.95); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#5D4037">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(93, 64, 55, 0.95)); padding: 10px 8px;">
+                <p style="color: #DEC292; margin: 0; font-size: 12px; font-weight: bold; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${title}</p>
+              </div>
+            </div>
+          `;
+        }).join('');
+        
+        document.getElementById('rokko-youtube-shorts').innerHTML = videosHTML;
+      }
+    } catch (error) {
+      console.error('Fehler beim Laden der YouTube Videos:', error);
+      document.getElementById('rokko-youtube-shorts').innerHTML = `
+        <div style="text-align: center; grid-column: 1 / -1; color: #DEC292;">
+          <p>Videos konnten nicht geladen werden. Bitte API Key und Playlist ID überprüfen.</p>
+        </div>
+      `;
+    }
+  }
+  
+  // Event Listener beim Laden der Seite initialisieren
+  document.addEventListener('DOMContentLoaded', function() {
+    // Videos laden
+    loadYouTubeShorts();
+    
+    // Event Listener für Close Button
+    document.getElementById('close-video-popup').addEventListener('click', closeVideoPopup);
+    
+    // ESC-Taste zum Schließen
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeVideoPopup();
+      }
+    });
+    
+    // Klick außerhalb des Videos zum Schließen
+    document.getElementById('video-popup-modal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeVideoPopup();
+      }
+    });
+  });
+  </script>
 
   <!-- STAY IN TOUCH -->
   <section class="section stay-in-touch inverse-color parallax-section" data-parallax-image="images/demo/stay-in-touch/bg-stay-in-touch.jpg" id="anchor02">
