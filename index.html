@@ -83,7 +83,7 @@
         <ul class="nav navbar-nav rokko-nav-centered">
           <li class="active"><a href="#anchor00">Home</a></li>
           <li><a href="#anchor01">Crew</a></li>
-          <li><a href="#anchor-videos">Videos</a></li>
+          <li><a href="#anchor-clips">ROKKO! Clips</a></li>
           <li><a href="#anchor03">Beats</a></li>
           <li><a href="#anchor04">Merch</a></li>
           <li><a href="#anchor07">News</a></li>
@@ -317,11 +317,11 @@
     </div>
   </section>
 
-  <!-- ROKKO! VIDEOS - YouTube Shorts Playlist -->
-  <section class="section rokko-videos" id="anchor-videos" style="background: #5D4037; padding: 60px 0;">
+  <!-- ROKKO! CLIPS - YouTube Shorts Playlist mit Pop-up Player -->
+  <section class="section rokko-clips" id="anchor-clips" style="background: #5D4037; padding: 60px 0;">
     <div class="container">
       <div class="title-wrapper">
-        <h2 class="title" style="color: #DEC292;">ROKKO! Videos</h2>
+        <h2 class="title" style="color: #DEC292;">ROKKO! Clips</h2>
       </div>
       <p class="text-center cousine" style="color: #DEC292; margin-bottom: 40px;">Unsere neuesten YouTube Shorts</p>
       
@@ -334,28 +334,115 @@
     </div>
   </section>
 
+  <!-- Fullscreen Video Pop-up Modal -->
+  <div id="video-popup-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 9999; justify-content: center; align-items: center;">
+    <!-- Close Button (X) -->
+    <button id="close-video-popup" style="position: absolute; top: 20px; right: 20px; background: #DEC292; color: #5D4037; border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 24px; font-weight: bold; cursor: pointer; z-index: 10000; transition: all 0.3s ease;" onmouseover="this.style.background='#c9a87a'" onmouseout="this.style.background='#DEC292'">
+      ×
+    </button>
+    
+    <!-- Video Container -->
+    <div id="video-player-container" style="width: 90%; max-width: 800px; height: 80vh; max-height: 90vh; position: relative;">
+      <!-- YouTube iframe wird hier eingefügt -->
+    </div>
+  </div>
+
   <script>
-  // YouTube API Integration für ROKKO! Videos
+  // YouTube API Integration für ROKKO! Clips
   // HINWEIS: Für automatische Updates benötigt man einen YouTube Data API Key
   // und die Playlist ID. Diese müssen hier eingefügt werden:
   const YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY_HERE'; // Muss vom User bereitgestellt werden
   const PLAYLIST_ID = 'YOUR_PLAYLIST_ID_HERE'; // Die YouTube Playlist ID
   
+  // Funktion zum Öffnen des Video Pop-ups
+  function openVideoPopup(videoId, title) {
+    const modal = document.getElementById('video-popup-modal');
+    const container = document.getElementById('video-player-container');
+    
+    // YouTube iframe mit autoplay erstellen
+    container.innerHTML = `
+      <iframe 
+        width="100%" 
+        height="100%" 
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1" 
+        title="${title}"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen
+        style="border-radius: 10px;">
+      </iframe>
+    `;
+    
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Verhindert Scrollen im Hintergrund
+  }
+  
+  // Funktion zum Schließen des Pop-ups
+  function closeVideoPopup() {
+    const modal = document.getElementById('video-popup-modal');
+    const container = document.getElementById('video-player-container');
+    
+    container.innerHTML = ''; // Video stoppen
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Scrollen wieder erlauben
+  }
+  
+  // Event Listener für Close Button
+  document.getElementById('close-video-popup').addEventListener('click', closeVideoPopup);
+  
+  // ESC-Taste zum Schließen
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeVideoPopup();
+    }
+  });
+  
+  // Klick außerhalb des Videos zum Schließen
+  document.getElementById('video-popup-modal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeVideoPopup();
+    }
+  });
+  
   async function loadYouTubeShorts() {
     if (YOUTUBE_API_KEY === 'YOUR_YOUTUBE_API_KEY_HERE' || PLAYLIST_ID === 'YOUR_PLAYLIST_ID_HERE') {
-      // Wenn API Key nicht gesetzt, zeige Platzhalter
+      // Wenn API Key nicht gesetzt, zeige Platzhalter mit Pop-up Funktionalität
       document.getElementById('rokko-youtube-shorts').innerHTML = `
-        <div style="aspect-ratio: 9/16; background: #DEC292; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px;">
-          <p style="color: #5D4037; margin-bottom: 10px; font-weight: bold;">Video 1</p>
-          <p style="color: #5D4037; font-size: 12px;">Beispiel YouTube Short</p>
+        <div style="position: relative; aspect-ratio: 9/16; background: #DEC292; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 1')"
+             onmouseover="this.style.transform='scale(1.05)'" 
+             onmouseout="this.style.transform='scale(1)'">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px;">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 15px;">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 10px; font-weight: bold;">Video 1</p>
+            <p style="color: #5D4037; font-size: 12px; text-align: center;">Beispiel YouTube Short</p>
+          </div>
         </div>
-        <div style="aspect-ratio: 9/16; background: #DEC292; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px;">
-          <p style="color: #5D4037; margin-bottom: 10px; font-weight: bold;">Video 2</p>
-          <p style="color: #5D4037; font-size: 12px;">Beispiel YouTube Short</p>
+        <div style="position: relative; aspect-ratio: 9/16; background: #DEC292; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 2')"
+             onmouseover="this.style.transform='scale(1.05)'" 
+             onmouseout="this.style.transform='scale(1)'">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px;">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 15px;">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 10px; font-weight: bold;">Video 2</p>
+            <p style="color: #5D4037; font-size: 12px; text-align: center;">Beispiel YouTube Short</p>
+          </div>
         </div>
-        <div style="aspect-ratio: 9/16; background: #DEC292; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px;">
-          <p style="color: #5D4037; margin-bottom: 10px; font-weight: bold;">Video 3</p>
-          <p style="color: #5D4037; font-size: 12px;">Beispiel YouTube Short</p>
+        <div style="position: relative; aspect-ratio: 9/16; background: #DEC292; border-radius: 10px; overflow: hidden; cursor: pointer; transition: transform 0.3s ease;" 
+             onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 3')"
+             onmouseover="this.style.transform='scale(1.05)'" 
+             onmouseout="this.style.transform='scale(1)'">
+          <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 20px;">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="#5D4037" style="margin-bottom: 15px;">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <p style="color: #5D4037; margin-bottom: 10px; font-weight: bold;">Video 3</p>
+            <p style="color: #5D4037; font-size: 12px; text-align: center;">Beispiel YouTube Short</p>
+          </div>
         </div>
       `;
       return;
@@ -374,8 +461,17 @@
           const thumbnail = item.snippet.thumbnails.high.url; // Hochformat Thumbnail
           
           return `
-            <div class="youtube-short-item" style="position: relative; aspect-ratio: 9/16; overflow: hidden; border-radius: 10px; cursor: pointer;" onclick="window.open('https://youtube.com/watch?v=${videoId}', '_blank')">
+            <div class="youtube-short-item" 
+                 style="position: relative; aspect-ratio: 9/16; overflow: hidden; border-radius: 10px; cursor: pointer; transition: transform 0.3s ease;" 
+                 onclick="openVideoPopup('${videoId}', '${title.replace(/'/g, "\\'")}')"
+                 onmouseover="this.style.transform='scale(1.05)'" 
+                 onmouseout="this.style.transform='scale(1)'">
               <img src="${thumbnail}" alt="${title}" style="width: 100%; height: 100%; object-fit: cover;">
+              <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(222, 194, 146, 0.9); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="#5D4037">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
               <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(93, 64, 55, 0.9)); padding: 15px;">
                 <p style="color: #DEC292; margin: 0; font-size: 14px; font-weight: bold;">${title}</p>
               </div>
