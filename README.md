@@ -127,4 +127,16 @@ Vor jeder Änderung das **`SCHUTZPROTOKOLL.md`** lesen!
 ## 📚 Dokumentation
 
 - **[SCHUTZPROTOKOLL.md](SCHUTZPROTOKOLL.md)** - Richtlinien für Änderungen an der Webseite
+- **[VERIFICATION_GUIDE.md](VERIFICATION_GUIDE.md)** - Anleitung zur Überprüfung implementierter Features
+- **[CHANGES_SUMMARY.md](CHANGES_SUMMARY.md)** - Zusammenfassung aller durchgeführten Änderungen
 - **[docs/README_WEBSITE.md](docs/README_WEBSITE.md)** - Anleitung zum lokalen Testen und GitHub Pages Veröffentlichung
+
+## ✅ Feature-Überprüfung
+
+Um zu überprüfen, dass alle dokumentierten Features tatsächlich implementiert sind:
+
+```bash
+./verify_features.sh
+```
+
+Dieser Befehl führt automatische Tests durch und bestätigt, dass alle Features aus `CHANGES_SUMMARY.md` korrekt implementiert sind. Siehe **[VERIFICATION_GUIDE.md](VERIFICATION_GUIDE.md)** für Details.
