@@ -439,19 +439,26 @@
     const modal = document.getElementById('video-popup-modal');
     const container = document.getElementById('video-player-container');
     
-    // YouTube iframe mit autoplay erstellen
-    container.innerHTML = `
-      <iframe 
-        width="100%" 
-        height="100%" 
-        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1" 
-        title="${title}"
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen
-        style="border-radius: 10px;">
-      </iframe>
-    `;
+    // Sicher YouTube videoId validieren (nur alphanumerische Zeichen, - und _)
+    if (!/^[a-zA-Z0-9_-]+$/.test(videoId)) {
+      console.error('Invalid video ID');
+      return;
+    }
+    
+    // YouTube iframe mit autoplay erstellen (sicher ohne innerHTML)
+    const iframe = document.createElement('iframe');
+    iframe.width = '100%';
+    iframe.height = '100%';
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+    iframe.setAttribute('title', title); // Sicher title setzen
+    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.style.borderRadius = '10px';
+    iframe.style.border = 'none'; // Statt deprecated frameborder
+    
+    // Container leeren und iframe hinzufügen
+    container.innerHTML = '';
+    container.appendChild(iframe);
     
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden'; // Verhindert Scrollen im Hintergrund
@@ -576,26 +583,63 @@
           const title = item.snippet.title;
           const thumbnail = item.snippet.thumbnails.high.url; // Hochformat Thumbnail
           
+          // Escape HTML um XSS zu verhindern
+          const escapeHtml = (text) => {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+          };
+          
           return `
             <div class="youtube-short-item" 
-                 style="position: relative; overflow: hidden;" 
-                 onclick="openVideoPopup('${videoId}', '${title.replace(/'/g, "\\'")}')"
-                 onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 16px rgba(0,0,0,0.3)'; this.querySelector('.play-button-overlay').style.opacity='1';" 
-                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.2)'; this.querySelector('.play-button-overlay').style.opacity='0';">
-              <img src="${thumbnail}" alt="${title}" style="width: 100%; height: 100%; object-fit: cover;">
+                 style="position: relative; overflow: hidden; cursor: pointer;" 
+                 data-video-id="${escapeHtml(videoId)}"
+                 data-video-title="${escapeHtml(title)}">
+              <img src="${escapeHtml(thumbnail)}" alt="${escapeHtml(title)}" style="width: 100%; height: 100%; object-fit: cover;">
               <div class="play-button-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(222, 194, 146, 0.95); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="#5D4037">
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </div>
               <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(93, 64, 55, 0.95)); padding: 10px 8px;">
-                <p style="color: #DEC292; margin: 0; font-size: 12px; font-weight: bold; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${title}</p>
+                <p style="color: #DEC292; margin: 0; font-size: 12px; font-weight: bold; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">${escapeHtml(title)}</p>
               </div>
             </div>
           `;
         }).join('');
         
         document.getElementById('rokko-youtube-shorts').innerHTML = videosHTML;
+        
+        // Event delegation für Video-Klicks (sicherer als inline onclick)
+        document.getElementById('rokko-youtube-shorts').addEventListener('click', function(e) {
+          const videoItem = e.target.closest('.youtube-short-item');
+          if (videoItem) {
+            const videoId = videoItem.dataset.videoId;
+            const title = videoItem.dataset.videoTitle;
+            openVideoPopup(videoId, title);
+          }
+        });
+        
+        // Hover-Effekte mit Event delegation
+        document.getElementById('rokko-youtube-shorts').addEventListener('mouseover', function(e) {
+          const videoItem = e.target.closest('.youtube-short-item');
+          if (videoItem) {
+            videoItem.style.transform = 'translateY(-5px)';
+            videoItem.style.boxShadow = '0 8px 16px rgba(0,0,0,0.3)';
+            const overlay = videoItem.querySelector('.play-button-overlay');
+            if (overlay) overlay.style.opacity = '1';
+          }
+        });
+        
+        document.getElementById('rokko-youtube-shorts').addEventListener('mouseout', function(e) {
+          const videoItem = e.target.closest('.youtube-short-item');
+          if (videoItem) {
+            videoItem.style.transform = 'translateY(0)';
+            videoItem.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+            const overlay = videoItem.querySelector('.play-button-overlay');
+            if (overlay) overlay.style.opacity = '0';
+          }
+        });
       }
     } catch (error) {
       console.error('Fehler beim Laden der YouTube Videos:', error);
