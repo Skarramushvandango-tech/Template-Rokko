@@ -12,8 +12,9 @@ The verification script (`verify_features.sh`) was created to address concerns a
 
 ### Location
 ```
-/home/runner/work/Template-Rokko/Template-Rokko/verify_features.sh
+./verify_features.sh
 ```
+(Located in the repository root directory)
 
 ### Usage
 

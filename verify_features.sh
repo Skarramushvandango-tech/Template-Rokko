@@ -127,12 +127,14 @@ echo ""
 echo "7. Verifying Header Spacing Reduction"
 echo "--------------------------------------"
 for artist in vandango bellieu fleur schablonski anger-uschis; do
-    count=$(grep -c 'padding: 10px 0;' "artist-$artist.html" 2>/dev/null || echo "0")
+    # Check for compact padding (10px-15px range is acceptable)
+    count=$(grep -E 'padding: (10|11|12|13|14|15)px' "artist-$artist.html" 2>/dev/null | wc -l)
     if [ "$count" -gt 0 ]; then
         echo -e "${GREEN}✓${NC} artist-$artist.html has compact header spacing"
         ((PASS++))
     else
-        echo -e "${YELLOW}?${NC} artist-$artist.html header spacing unclear"
+        echo -e "${RED}✗${NC} artist-$artist.html does not have compact header spacing"
+        ((FAIL++))
     fi
 done
 echo ""
