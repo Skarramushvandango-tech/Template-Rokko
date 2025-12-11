@@ -431,8 +431,8 @@
   // YouTube API Integration für ROKKO! Clips
   // HINWEIS: Für automatische Updates benötigt man einen YouTube Data API Key
   // und die Playlist ID. Diese müssen hier eingefügt werden:
-  const YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY_HERE'; // Muss vom User bereitgestellt werden
-  const PLAYLIST_ID = 'YOUR_PLAYLIST_ID_HERE'; // Die YouTube Playlist ID
+  const YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY_HERE'; // Optional: Für automatische Updates
+  const PLAYLIST_ID = 'PLMt6M5G2Twu9gcvQOZlVt9Z-_1h9kzTAO'; // Die YouTube Playlist ID
   
   // Funktion zum Öffnen des Video Pop-ups
   function openVideoPopup(videoId, title) {
@@ -468,8 +468,25 @@
   }
   
   async function loadYouTubeShorts() {
-    if (YOUTUBE_API_KEY === 'YOUR_YOUTUBE_API_KEY_HERE' || PLAYLIST_ID === 'YOUR_PLAYLIST_ID_HERE') {
-      // Wenn API Key nicht gesetzt, zeige Platzhalter mit Pop-up Funktionalität
+    if (YOUTUBE_API_KEY === 'YOUR_YOUTUBE_API_KEY_HERE') {
+      // Wenn API Key nicht gesetzt, zeige direkten Link zur Playlist
+      document.getElementById('rokko-youtube-shorts').innerHTML = `
+        <div style="text-align: center; width: 100%; color: #DEC292; padding: 40px 20px;">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="#DEC292" style="margin-bottom: 20px;">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <h3 style="color: #DEC292; margin-bottom: 15px; font-size: 24px;">ROKKO! Clips auf YouTube</h3>
+          <p style="color: #DEC292; margin-bottom: 30px; font-size: 16px;">Schau dir unsere neuesten Videos direkt auf YouTube an!</p>
+          <a href="https://youtube.com/playlist?list=${PLAYLIST_ID}" target="_blank" class="btn square" style="background: #DEC292; color: #5D4037; border: none; padding: 15px 30px; font-size: 16px; text-decoration: none; display: inline-block; transition: all 0.3s ease;" onmouseover="this.style.background='#c9a87a'" onmouseout="this.style.background='#DEC292'">
+            <i class="fa fa-youtube-play" style="margin-right: 10px;"></i> Zur Playlist
+          </a>
+        </div>
+      `;
+      return;
+    }
+    
+    if (PLAYLIST_ID === 'YOUR_PLAYLIST_ID_HERE') {
+      // Wenn Playlist ID nicht gesetzt, zeige Platzhalter mit Pop-up Funktionalität
       document.getElementById('rokko-youtube-shorts').innerHTML = `
         <div class="youtube-short-placeholder" style="position: relative; background: linear-gradient(135deg, #DEC292 0%, #c9a87a 100%);" 
              onclick="openVideoPopup('dQw4w9WgXcQ', 'Beispiel Video 1')"
