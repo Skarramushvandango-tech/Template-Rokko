@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROKKO! Records - Feature Verification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #DEC292;
+            color: #333;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #5D4037;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        h2 {
+            color: #5D4037;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 20px;
+            border-bottom: 2px solid #bdb76b;
+            padding-bottom: 5px;
+        }
+        
+        .feature-group {
+            margin-bottom: 20px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            margin-right: 12px;
+            cursor: pointer;
+            accent-color: #5D4037;
+        }
+        
+        .feature-label {
+            flex: 1;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .test-link {
+            color: #5D4037;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 2px 8px;
+            background: #bdb76b;
+            border-radius: 3px;
+            margin-left: 8px;
+            font-size: 14px;
+        }
+        
+        .test-link:hover {
+            background: #a5a55b;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #5D4037, #bdb76b);
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .summary {
+            background: #5D4037;
+            color: #DEC292;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .intro {
+            background: #f9f9f9;
+            padding: 15px;
+            border-left: 4px solid #bdb76b;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .status-pending {
+            opacity: 0.6;
+        }
+        
+        .status-complete {
+            opacity: 1;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            h2 {
+                font-size: 18px;
+            }
+            
+            .test-link {
+                display: block;
+                margin-top: 5px;
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 ROKKO! Records - Feature Verification</h1>
+        
+        <div class="intro">
+            <strong>Mobile-Friendly Verification Checklist</strong><br>
+            Diese Seite ermöglicht es dir, alle Features der ROKKO! Records Website manuell zu überprüfen, auch auf dem Handy. 
+            Klicke auf die Links, um jede Seite zu öffnen und die Features zu testen. Aktiviere die Checkbox, wenn alles korrekt ist.
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar">0%</div>
+        </div>
+        
+        <h2>1. Artist Pages - Existenz prüfen</h2>
+        <div class="feature-group">
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check1" onchange="updateProgress()">
+                <label class="feature-label" for="check1">
+                    SkaRamush Vandango Seite existiert
+                    <a href="artist-vandango.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check2" onchange="updateProgress()">
+                <label class="feature-label" for="check2">
+                    Henri Bellieu Seite existiert
+                    <a href="artist-bellieu.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check3" onchange="updateProgress()">
+                <label class="feature-label" for="check3">
+                    Fléur et Buenié Seite existiert
+                    <a href="artist-fleur.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check4" onchange="updateProgress()">
+                <label class="feature-label" for="check4">
+                    Skank Schablonski Seite existiert
+                    <a href="artist-schablonski.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check5" onchange="updateProgress()">
+                <label class="feature-label" for="check5">
+                    Anger Uschis Seite existiert
+                    <a href="artist-anger-uschis.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+        </div>
+        
+        <h2>2. Background Color - ROKKO Sand (#DEC292)</h2>
+        <div class="feature-group">
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check6" onchange="updateProgress()">
+                <label class="feature-label" for="check6">
+                    Vandango: Sand-Farbe statt schwarz
+                    <a href="artist-vandango.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check7" onchange="updateProgress()">
+                <label class="feature-label" for="check7">
+                    Bellieu: Sand-Farbe statt schwarz
+                    <a href="artist-bellieu.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check8" onchange="updateProgress()">
+                <label class="feature-label" for="check8">
+                    Fléur: Sand-Farbe statt schwarz
+                    <a href="artist-fleur.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check9" onchange="updateProgress()">
+                <label class="feature-label" for="check9">
+                    Schablonski: Sand-Farbe statt schwarz
+                    <a href="artist-schablonski.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check10" onchange="updateProgress()">
+                <label class="feature-label" for="check10">
+                    Anger Uschis: Sand-Farbe statt schwarz
+                    <a href="artist-anger-uschis.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+        </div>
+        
+        <h2>3. Streaming Buttons - 5 Plattformen</h2>
+        <div class="feature-group">
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check11" onchange="updateProgress()">
+                <label class="feature-label" for="check11">
+                    Vandango: Spotify, Apple Music, SoundCloud, Beatport, YouTube Music
+                    <a href="artist-vandango.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check12" onchange="updateProgress()">
+                <label class="feature-label" for="check12">
+                    Bellieu: Alle 5 Streaming-Buttons vorhanden
+                    <a href="artist-bellieu.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check13" onchange="updateProgress()">
+                <label class="feature-label" for="check13">
+                    Fléur: Alle 5 Streaming-Buttons vorhanden
+                    <a href="artist-fleur.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check14" onchange="updateProgress()">
+                <label class="feature-label" for="check14">
+                    Schablonski: Alle 5 Streaming-Buttons vorhanden
+                    <a href="artist-schablonski.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check15" onchange="updateProgress()">
+                <label class="feature-label" for="check15">
+                    Anger Uschis: Alle 5 Streaming-Buttons vorhanden
+                    <a href="artist-anger-uschis.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+        </div>
+        
+        <h2>4. Videos Section</h2>
+        <div class="feature-group">
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check16" onchange="updateProgress()">
+                <label class="feature-label" for="check16">
+                    Vandago: Videos Section vorhanden
+                    <a href="artist-vandango.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check17" onchange="updateProgress()">
+                <label class="feature-label" for="check17">
+                    Bellieu: Videos Section vorhanden
+                    <a href="artist-bellieu.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check18" onchange="updateProgress()">
+                <label class="feature-label" for="check18">
+                    Fléur: Videos Section vorhanden
+                    <a href="artist-fleur.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check19" onchange="updateProgress()">
+                <label class="feature-label" for="check19">
+                    Schablonski: Videos Section vorhanden
+                    <a href="artist-schablonski.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check20" onchange="updateProgress()">
+                <label class="feature-label" for="check20">
+                    Anger Uschis: Videos Section vorhanden
+                    <a href="artist-anger-uschis.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+        </div>
+        
+        <h2>5. Button Design - Keine Outlines</h2>
+        <div class="feature-group">
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check21" onchange="updateProgress()">
+                <label class="feature-label" for="check21">
+                    Streaming-Buttons haben keine sichtbaren Outlines (alle Seiten)
+                    <a href="artist-vandango.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+        </div>
+        
+        <h2>6. ROKKO! Clips - Hauptseite</h2>
+        <div class="feature-group">
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check22" onchange="updateProgress()">
+                <label class="feature-label" for="check22">
+                    "ROKKO! Clips" Link im Menü vorhanden
+                    <a href="index.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check23" onchange="updateProgress()">
+                <label class="feature-label" for="check23">
+                    ROKKO! Clips Sektion mit YouTube Videos
+                    <a href="index.html#anchor-clips" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+        </div>
+        
+        <h2>7. Header Spacing - Kompakt</h2>
+        <div class="feature-group">
+            <div class="feature-item">
+                <input type="checkbox" class="checkbox" id="check24" onchange="updateProgress()">
+                <label class="feature-label" for="check24">
+                    Header-Bereich auf Artist-Seiten ist kompakter (weniger Abstand)
+                    <a href="artist-vandango.html" target="_blank" class="test-link">Testen →</a>
+                </label>
+            </div>
+        </div>
+        
+        <div class="summary" id="summary">
+            0 von 24 Features überprüft
+        </div>
+    </div>
+    
+    <script>
+        function updateProgress() {
+            const total = document.querySelectorAll('.checkbox').length;
+            const checked = document.querySelectorAll('.checkbox:checked').length;
+            const percentage = Math.round((checked / total) * 100);
+            
+            const progressBar = document.getElementById('progressBar');
+            const summary = document.getElementById('summary');
+            
+            progressBar.style.width = percentage + '%';
+            progressBar.textContent = percentage + '%';
+            
+            summary.textContent = checked + ' von ' + total + ' Features überprüft';
+            
+            if (percentage === 100) {
+                summary.innerHTML = '✅ Alle Features überprüft! Website vollständig verifiziert.';
+                summary.style.background = 'linear-gradient(90deg, #2E7D32, #4CAF50)';
+            } else {
+                summary.style.background = '#5D4037';
+            }
+            
+            // Save progress to localStorage
+            const checkboxStates = {};
+            document.querySelectorAll('.checkbox').forEach((checkbox, index) => {
+                checkboxStates['check' + (index + 1)] = checkbox.checked;
+            });
+            localStorage.setItem('rokko_verification_progress', JSON.stringify(checkboxStates));
+        }
+        
+        // Load progress from localStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('rokko_verification_progress');
+            if (saved) {
+                const checkboxStates = JSON.parse(saved);
+                Object.keys(checkboxStates).forEach(id => {
+                    const checkbox = document.getElementById(id);
+                    if (checkbox) {
+                        checkbox.checked = checkboxStates[id];
+                    }
+                });
+                updateProgress();
+            }
+        });
+    </script>
+</body>
+</html>
