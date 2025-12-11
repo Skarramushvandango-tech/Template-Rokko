@@ -135,6 +135,14 @@ Vor jeder Änderung das **`SCHUTZPROTOKOLL.md`** lesen!
 
 Um zu überprüfen, dass alle dokumentierten Features tatsächlich implementiert sind:
 
+### 📱 Mobile / Browser (empfohlen für Handy)
+Öffne einfach diese Datei in deinem Browser:
+```
+verify-mobile.html
+```
+Interaktive Checkliste mit Links zu allen Features. Funktioniert auf jedem Gerät!
+
+### 💻 Automatisches Script (nur Desktop/Terminal)
 ```bash
 ./verify_features.sh
 ```

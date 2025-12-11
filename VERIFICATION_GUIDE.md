@@ -6,9 +6,27 @@ This document provides instructions for verifying that all features documented i
 
 ## Purpose
 
-The verification script (`verify_features.sh`) was created to address concerns about ensuring that claimed work is actually completed and present in the codebase. This provides an automated, repeatable way to verify all features.
+The verification tools were created to address concerns about ensuring that claimed work is actually completed and present in the codebase. This provides automated and manual ways to verify all features.
 
-## Verification Script
+## 📱 Mobile-Friendly Verification (NEW!)
+
+**For users working on mobile devices or without a terminal:**
+
+Open `verify-mobile.html` in any web browser (including on your phone):
+
+```
+verify-mobile.html
+```
+
+This provides an interactive checklist where you can:
+- Click links to test each feature
+- Check off items as you verify them
+- Track progress with a visual progress bar
+- Save your progress automatically (uses browser storage)
+
+**Perfect for:** Mobile devices, tablets, or anyone who prefers a visual checklist.
+
+## 💻 Automated Verification Script
 
 ### Location
 ```
@@ -23,6 +41,8 @@ Run the verification script from the repository root:
 ```bash
 ./verify_features.sh
 ```
+
+**Note:** Requires a bash environment (Linux, macOS, WSL on Windows). Not available on mobile devices.
 
 ### What It Checks
 
