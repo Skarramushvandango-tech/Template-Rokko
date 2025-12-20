@@ -25,7 +25,7 @@ All features are working correctly, the preview loads properly, and there are no
 - **Artist Pages:** All 5 artist pages load and are accessible
   - SkaRamush Vandango ✅
   - Henri Bellieu ✅
-  - Fléur et Buenié ✅
+  - Fleur et Buenié ✅
   - Skank Schablonski ✅
   - Anger Uschis ✅
 
@@ -106,6 +106,7 @@ These are **NOT problems** - they are intentional placeholders:
 
 ### 1. Placeholder Links (40 total)
 **Location:** Social media and streaming service buttons  
+**Breakdown:** Approximately 8 social/streaming links per artist page (5 artists) + 40 on main page  
 **Status:** ⚠️ **NORMAL** - To be filled in with actual links  
 **Action Required:** Replace `href="#"` with real URLs when available
 
@@ -132,7 +133,9 @@ During testing, these warnings were observed but **do not affect functionality**
    - Impact: Core functionality unaffected
    
 3. **jQuery plugin errors** (superslides, isotope)
-   - Impact: Some animations may not work, but content is fully accessible
+   - Affected features: Image carousels and gallery filtering
+   - Impact: These are enhancement plugins - core content remains fully accessible even if these animations don't work
+   - Recommendation: Not critical for production; can be fixed later if needed by ensuring all jQuery dependencies are properly loaded
 
 ---
 
@@ -147,6 +150,17 @@ During testing, these warnings were observed but **do not affect functionality**
 ### Custom Domain (rokko_webtest.de) ✅
 - ✅ CNAME file configured
 - ⚠️ DNS records need to be verified on domain registrar side
+  
+**To verify DNS configuration:**
+1. Go to your domain registrar (e.g., Namecheap, GoDaddy)
+2. Add these DNS records:
+   - Type: `A` Record, Host: `@`, Value: `185.199.108.153` (GitHub Pages IP)
+   - Type: `A` Record, Host: `@`, Value: `185.199.109.153`
+   - Type: `A` Record, Host: `@`, Value: `185.199.110.153`
+   - Type: `A` Record, Host: `@`, Value: `185.199.111.153`
+   - Type: `CNAME` Record, Host: `www`, Value: `[your-github-username].github.io`
+3. Wait 24-48 hours for DNS propagation
+4. Verify with: `dig rokko_webtest.de` or online DNS checker tools
 
 ---
 
