@@ -10,8 +10,10 @@
 - ✅ Streaming-Buttons, Video-Integration, Social Media vorbereitet
 - ✅ GitHub Pages kompatibel
 - ✅ Custom Domain konfiguriert (rokko_webtest.de)
+- ✅ **Preview funktioniert einwandfrei** (getestet am 2024-12-20)
 
-**📖 Deployment-Anleitung:** Siehe `DEPLOYMENT.md`
+**📖 Deployment-Anleitung:** Siehe `DEPLOYMENT.md`  
+**🔍 Vollständiger Funktionstest:** Siehe `WEBSITE_HEALTH_CHECK.md`
 
 ---
 
