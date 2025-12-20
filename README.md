@@ -162,4 +162,24 @@ Diese Inhalte sind **komplett optional**. Die Website funktioniert auch ohne sie
 ## 📚 Dokumentation
 
 - **[SCHUTZPROTOKOLL.md](SCHUTZPROTOKOLL.md)** - Richtlinien für Änderungen an der Webseite
+- **[VERIFICATION_GUIDE.md](VERIFICATION_GUIDE.md)** - Anleitung zur Überprüfung implementierter Features
+- **[CHANGES_SUMMARY.md](CHANGES_SUMMARY.md)** - Zusammenfassung aller durchgeführten Änderungen
 - **[docs/README_WEBSITE.md](docs/README_WEBSITE.md)** - Anleitung zum lokalen Testen und GitHub Pages Veröffentlichung
+
+## ✅ Feature-Überprüfung
+
+Um zu überprüfen, dass alle dokumentierten Features tatsächlich implementiert sind:
+
+### 📱 Mobile / Browser (empfohlen für Handy)
+Öffne einfach diese Datei in deinem Browser:
+```
+verify-mobile.html
+```
+Interaktive Checkliste mit Links zu allen Features. Funktioniert auf jedem Gerät!
+
+### 💻 Automatisches Script (nur Desktop/Terminal)
+```bash
+./verify_features.sh
+```
+
+Dieser Befehl führt automatische Tests durch und bestätigt, dass alle Features aus `CHANGES_SUMMARY.md` korrekt implementiert sind. Siehe **[VERIFICATION_GUIDE.md](VERIFICATION_GUIDE.md)** für Details.
